@@ -6,26 +6,44 @@ namespace RRUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Resteraunt review system");
-            go = true;
+            
+            Console.WriteLine();
+            Console.WriteLine("Welcome to the restaurant review system");
+            bool go = true;
 
             while (go)
             {
-                Console.WriteLine("Please choose an option \n [0] To exit the system");
-
+                Console.Clear();
+                Console.WriteLine(@String.Join(Environment.NewLine,
+                "Please choose an option",
+                "   [0] To exit the system",
+                "   [1] To clear the screen",
+                "   [2] To leave a review"));
+                string input = Console.ReadLine();
 
                 switch (input)
                 {
                     case "0":
-                        brake;
+                        Console.WriteLine("Good bye");
+                        go=false;
+                        break;
 
                     case "1":
-                        brake;
+                        Console.WriteLine("The user chose to clear the screen");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                        break;
 
                     case "2":
-                        brake;
-                     default:
+                        Console.WriteLine("This feature is still under development");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                        break;
+                        
+                    default:
+                        break;
                 }
+                //go=false;
             }
         }
     }
