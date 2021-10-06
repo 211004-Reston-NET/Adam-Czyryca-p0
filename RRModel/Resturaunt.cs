@@ -5,12 +5,8 @@ namespace RRModel
 {
     public class Resturaunt 
     {
-        //feild for City property 
+        
         private string _city;
-        private string _name;
-      
-
-        //City property of resturant 
         public string City
         {
             get
@@ -30,13 +26,37 @@ namespace RRModel
         private string _state;
         public string State
         {
-            get { return _state; }
-            set { _state = value; }
+            get 
+            { 
+                return _state; 
+                
+            }
+            set 
+            { 
+                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+                {
+                    throw new Exception ("State can only hold letters");
+                }
+                _state = value; 
+            }
         }
         
-        
-      
-
-
+        private string _name;
+        public string Name
+        {
+            get 
+            { 
+                return _name; 
+                
+            }
+            set 
+            { 
+                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+                {
+                    throw new Exception ("State can only hold letters");
+                }
+                _name = value; 
+            }
+        }
     }
 }
