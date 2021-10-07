@@ -19,13 +19,6 @@ namespace RRUI
                 page.Menu();
                 MenuType currentPage = page.YourChoice();
 
-                Console.WriteLine(@String.Join(Environment.NewLine,
-                "Please choose an option",
-                "   [0] To exit the system",
-                "   [1] To clear the screen",
-                "   [2] To leave a review"));
-                string input = Console.ReadLine();
-
                 switch (currentPage)
                 {
                     case MenuType.MainMenu:
