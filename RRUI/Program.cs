@@ -10,10 +10,15 @@ namespace RRUI
             Console.WriteLine();
             Console.WriteLine("Welcome to the restaurant review system");
             bool go = true;
+            //example of polymorthism, abstraction and inharitence 
+            IMenu page = new MainMenu();
 
             while (go)
             {
                 Console.Clear();
+                page.Menu();
+                MenuType currentPage = page.YourChoice();
+
                 Console.WriteLine(@String.Join(Environment.NewLine,
                 "Please choose an option",
                 "   [0] To exit the system",
@@ -21,26 +26,26 @@ namespace RRUI
                 "   [2] To leave a review"));
                 string input = Console.ReadLine();
 
-                switch (input)
+                switch (currentPage)
                 {
-                    case "0":
-                        Console.WriteLine("Good bye");
+                    case MenuType.MainMenu:
+                        page= new MainMenu();
+                        break;
+
+                    case MenuType.RestaurantMenu:
+                       page=  new RestaurantMenu();
+                        break;
+
+                    case MenuType.Exit:
+                        Console.WriteLine("You are exiting the application");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
                         go=false;
                         break;
 
-                    case "1":
-                        Console.WriteLine("The user chose to clear the screen");
-                        Console.WriteLine("Press Enter to continue...");
-                        Console.ReadLine();
-                        break;
-
-                    case "2":
-                        Console.WriteLine("This feature is still under development");
-                        Console.WriteLine("Press Enter to continue...");
-                        Console.ReadLine();
-                        break;
-                        
                     default:
+                        Console.WriteLine("you forgot to add a menue in your enum");
+                        go=false;
                         break;
                 }
                 //go=false;
