@@ -4,6 +4,12 @@ namespace TTGModel
 {
     public class Store
     {
+        /*Properties:
+         name
+         address
+         list of products
+         list of orders
+        */
         private string _name;
         public string Name
         {

@@ -4,6 +4,7 @@ namespace TTGUI
     {
         MainMenu,
         StoreMenu,
+        CustomerMenu,
         Exit
     }
 
