@@ -27,9 +27,17 @@ namespace TTGUI
                     case MenuType.CustomerMenu:
                         page= new CustomerMenu();
                         break;
+                    case MenuType.LineItemMenu:
+                        page= new LineItemMenu();
+                        break;
+                    case MenuType.ProductMenu:
+                        page= new ProductMenu();
+                        break;
+                    case MenuType.OrdersMenu:
+                        page= new OrdersMenu();
+                        break;
                     case MenuType.Exit:
                         Console.WriteLine("You are exiting the application");
-                        Console.WriteLine("Press enter to continue...");
                         repeat = false;
                         break;
                     default:

@@ -13,6 +13,9 @@ namespace TTGUI
             "Where do you want to go?",
             "[1] store Menu",
             "[2] Customer Menu",
+            "[3] Orders Menu",
+            "[4] Products Menu",
+            "[5] LineItem Menu",
             "[0] Exit",
             "______________________________"
            
@@ -25,6 +28,12 @@ namespace TTGUI
 
             switch (userChoice)
             {
+                case "5":
+                 return MenuType.LineItemMenu;
+                case "4":
+                    return MenuType.ProductMenu;
+                case "3":
+                    return MenuType.OrdersMenu;
                 case "2":
                  return MenuType.CustomerMenu;
                 case "1":
@@ -32,6 +41,7 @@ namespace TTGUI
                 case "0":
                     return MenuType.Exit;
                 default:
+                    Console.WriteLine(" Enter a Valid option ");
                     return MenuType.MainMenu;
             }
         }

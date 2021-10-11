@@ -8,11 +8,11 @@ namespace TTGUI
         {
             Console.WriteLine(String.Join(Environment.NewLine,
             "____________________________________",
-            "Welcome to the Table Top Game Store",
+            "Welcome to the store page",
             "What would you like to do?",
-            "[0] Checkout",
-            "[1] Place an order",
-            "[2] Go back to main Menu",
+            "[1] Checkout",
+            "[2] Place an order",
+            "[0] Go back to main Menu",
             "______________________________________"
 
             ));
@@ -25,13 +25,14 @@ namespace TTGUI
             switch (userChoice)
             {
                 //replace with checkoutMenu when chechoutMenu is made
-                case "0":
+                case "2":
                     return MenuType.StoreMenu;
                 case "1":
                     return MenuType.StoreMenu;
-                case "2":
+                case "0":
                     return MenuType.MainMenu;
                 default:
+                    Console.WriteLine(" Enter a Valid option ");
                     return MenuType.StoreMenu;
             }
         }

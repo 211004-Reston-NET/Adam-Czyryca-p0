@@ -24,5 +24,18 @@ namespace TTGModel
             set { _address = value; }
         }
         
+        private string _prodList;
+        public string ProdList
+        {
+            get { return _prodList; }
+            set { _prodList = value; }
+        }
+        
+        private string _orderList;
+        public string OrderList
+        {
+            get { return _orderList; }
+            set { _orderList = value; }
+        }
     }
 }

@@ -5,6 +5,9 @@ namespace TTGUI
         MainMenu,
         StoreMenu,
         CustomerMenu,
+        LineItemMenu,
+        OrdersMenu,
+        ProductMenu,
         Exit
     }
 

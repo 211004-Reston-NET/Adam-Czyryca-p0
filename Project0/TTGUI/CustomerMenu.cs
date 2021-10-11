@@ -11,9 +11,9 @@ namespace TTGUI
             "____________________________________",
             "Welcome to the Customer information page",
             "What would you like to do?",
-            "[0] Edit customer information",
-            "[1] View your orders",
-            "[2] Go back to main Menu",
+            "[1] Edit customer information",
+            "[2] View your orders",
+            "[0] Go back to main Menu",
             "______________________________________"
 
             )); 
@@ -25,11 +25,11 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                case "0":
+                case "2":
                  return MenuType.CustomerMenu;
                 case "1":
                  return MenuType.CustomerMenu;
-                case "2": 
+                case "0": 
                  return MenuType.MainMenu;
                 default:
                  Console.WriteLine(" Enter a Valid option ");
