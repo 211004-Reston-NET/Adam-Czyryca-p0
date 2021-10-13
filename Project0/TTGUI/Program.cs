@@ -1,5 +1,6 @@
 ﻿using System;
-
+using TTGBL;
+using TTGDL;
 namespace TTGUI
 {
     class Program
@@ -18,6 +19,13 @@ namespace TTGUI
 
                 switch (currentPage)
                 {
+
+                    case MenuType.ShowStores:
+                        page= new ShowStores(new StoreBL(new StoreRepository()));
+                        break;
+                    case MenuType.AddStoreMenu:
+                        page= new AddStoreMenu(new StoreBL(new StoreRepository()));
+                        break;
                     case MenuType.MainMenu:
                         page= new MainMenu(); 
                         break;

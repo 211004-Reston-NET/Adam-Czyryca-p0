@@ -8,6 +8,8 @@ namespace TTGUI
         LineItemMenu,
         OrdersMenu,
         ProductMenu,
+        AddStoreMenu,
+        ShowStores,
         Exit
     }
 

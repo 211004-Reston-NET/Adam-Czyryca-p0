@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text.RegularExpressions;
 namespace TTGModel
 {
     public class Store
@@ -10,32 +10,32 @@ namespace TTGModel
          list of products
          list of orders
         */
+       
         private string _name;
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set 
+            { 
+                /*
+                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+                {
+                    throw new Exception("Name can only hold letters!");
+                }
+                */
+                _name = value;
+            }
         }
         
-        private string _address;
-        public string Address
-        {
-            get { return _address; }
-            set { _address = value; }
-        }
+        public string Address{get; set;}
         
-        private string _prodList;
-        public string ProdList
-        {
-            get { return _prodList; }
-            set { _prodList = value; }
-        }
+        public string ProdList{get; set;}
         
-        private string _orderList;
-        public string OrderList
+        public string OrderList{get; set;}
+
+        public override string ToString()
         {
-            get { return _orderList; }
-            set { _orderList = value; }
+            return $"Name: {Name}\nAddress: {Address}";
         }
     }
 }
