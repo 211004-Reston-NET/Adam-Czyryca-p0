@@ -1,5 +1,38 @@
 [
     {
-        
+    "Name": "DnD Wizard figurine",
+    "Price": "6.00",
+    "Description": "A 1 inch plastic model of a wizard",
+    "category": "DND" 
+    },
+    {
+    "Name": "DnD Warlock figurine",
+    "Price": "4.00",
+    "Description": "A 1 inch plastic model of a warlock",
+    "category": "DND" 
+    },
+    {
+    "Name": "DnD Paladin figurine",
+    "Price": "5.00",
+    "Description": "A 1 inch plastic model of a Paladin",
+    "category": "DND" 
+    },
+    {
+    "Name": "gemstone dice set",
+    "Price": "50.00",
+    "Description": "7pc dice set made of polished gemstones",
+    "category": "Dice" 
+    },
+    {
+    "Name": "Metal dice set",
+    "Price": "50.00",
+    "Description": "7pc dice set made of Metal",
+    "category": "Dice" 
+    },
+    {
+    "Name": "Plastic dice set",
+    "Price": "15.00",
+    "Description": "7pc dice set made of plastic",
+    "category": "Dice" 
     }
 ]

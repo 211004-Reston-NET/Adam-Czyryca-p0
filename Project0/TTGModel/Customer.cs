@@ -22,6 +22,9 @@ namespace TTGModel
         public string EmailPhone {get; set;}
         public string OrderList{ get; set;}
         
-        
+        public override string ToString()
+        {
+            return $"Name: {Name}\nAddress: {Address}\nEmail/Phone: {EmailPhone}";
+        }
     }
 }

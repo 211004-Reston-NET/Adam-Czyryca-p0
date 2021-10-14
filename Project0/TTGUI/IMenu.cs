@@ -11,6 +11,7 @@ namespace TTGUI
         AddStoreMenu,
         AddCustomerMenu,
         ShowStores,
+        ShowCustomers,
         Exit
     }
 

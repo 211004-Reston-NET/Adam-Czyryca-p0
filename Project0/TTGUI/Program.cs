@@ -20,7 +20,9 @@ namespace TTGUI
                 switch (currentPage)
                 {
 
-                    
+                    case MenuType.ShowCustomers:
+                        page= new ShowCustomers(new CustomerBL(new CustRepository()));
+                        break;
                     case MenuType.ShowStores:
                         page= new ShowStores(new StoreBL(new StoreRepository()));
                         break;

@@ -28,7 +28,7 @@ namespace TTGUI
             switch (userChoice)
             {
                 case "3":
-                    return MenuType.CustomerMenu;
+                    return MenuType.ShowCustomers;
                 case "2":
                     return MenuType.AddCustomerMenu;
                 case "1":
