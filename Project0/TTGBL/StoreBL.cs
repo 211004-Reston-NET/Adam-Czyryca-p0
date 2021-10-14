@@ -7,10 +7,10 @@ namespace TTGBL
 {
     public class StoreBL : IStoreBL
     {
-        private IRepository _repo;
+        private IStoreRepository _repo;//IStoreRepository
         
 
-        public StoreBL(IRepository p_repo)
+        public StoreBL(IStoreRepository p_repo)//IStoreRepository
         {
             _repo = p_repo;
         }

@@ -7,16 +7,18 @@ namespace TTGUI
     {
         public void Menu()
         {
-           Console.WriteLine(String.Join(Environment.NewLine,
-            "____________________________________",
-            "Welcome to the Customer information page",
-            "What would you like to do?",
-            "[1] Edit customer information",
-            "[2] View your orders",
-            "[0] Go back to main Menu",
-            "______________________________________"
+           Console.WriteLine(
+            "_______________________________________________\n"+
+            "Welcome to the Customer information page\n"+
+            "What would you like to do?\n"+
+            "[3] Show all Customers\n"+
+            "[2] Add new customer\n"+
+            "[1] View your orders\n"+
+            "[0] Go back to main Menu\n"+
+            "_______________________________________________\n");
 
-            )); 
+
+             
         }
 
         public MenuType Navigation()
@@ -25,8 +27,10 @@ namespace TTGUI
 
             switch (userChoice)
             {
+                case "3":
+                    return MenuType.CustomerMenu;
                 case "2":
-                 return MenuType.CustomerMenu;
+                    return MenuType.AddCustomerMenu;
                 case "1":
                  return MenuType.CustomerMenu;
                 case "0": 

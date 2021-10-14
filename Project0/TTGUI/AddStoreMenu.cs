@@ -7,9 +7,9 @@ namespace TTGUI
     {
         
         private static Store _store = new Store();
-        private IStoreBL _storeBL;
+        private IStoreBL _storeBL;//IStoreBL
 
-        public AddStoreMenu(IStoreBL p_storeBL)
+        public AddStoreMenu(IStoreBL p_storeBL)//IstoreBL
         {
             _storeBL = p_storeBL;
         }
@@ -17,10 +17,10 @@ namespace TTGUI
         {
             
             Console.WriteLine("______________________________");
-            Console.WriteLine("Adding a new Restaurant");
+            Console.WriteLine("Adding a new Store");
             Console.WriteLine("Name - " + _store.Name);
             Console.WriteLine("Address - "+ _store.Address);
-            Console.WriteLine("[3] - Add Restaurant");
+            Console.WriteLine("[3] - Add store");
             Console.WriteLine("[2] - Input value for Name");
             Console.WriteLine("[1] - Input value for Address");
             Console.WriteLine("[0] - Go Back");

@@ -9,6 +9,7 @@ namespace TTGUI
         OrdersMenu,
         ProductMenu,
         AddStoreMenu,
+        AddCustomerMenu,
         ShowStores,
         Exit
     }

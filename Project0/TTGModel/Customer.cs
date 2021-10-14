@@ -17,26 +17,11 @@ namespace TTGModel
             set { _name = value; }
         }
         
-        private string _address;
-        public string Address
-        {
-            get { return _address; }
-            set { _address = value; }
-        }
         
-        private string _emailPhone;
-        public string EmailPhone
-        {
-            get { return _emailPhone; }
-            set { _emailPhone = value; }
-        }
+        public string Address{ get; set;}
+        public string EmailPhone {get; set;}
+        public string OrderList{ get; set;}
         
-        private string _orderList;
-        public string OrderList
-        {
-            get { return _orderList; }
-            set { _orderList = value; }
-        }
         
     }
 }

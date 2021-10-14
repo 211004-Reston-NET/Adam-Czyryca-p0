@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TTGModel;
 namespace TTGDL
 {
-    public interface IRepository
+    public interface IStoreRepository
 {
         /// <summary>
         /// this will return a list of stores stored in the database

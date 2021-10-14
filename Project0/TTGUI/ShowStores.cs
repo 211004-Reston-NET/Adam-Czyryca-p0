@@ -7,8 +7,8 @@ namespace TTGUI
 {
     public class ShowStores : IMenu
     {
-        public IStoreBL _storeBL;
-        public ShowStores(IStoreBL p_storeBL)
+        public IStoreBL _storeBL;//IstoreBL
+        public ShowStores(IStoreBL p_storeBL)//IStoreBL
         {
             _storeBL=p_storeBL;
         }

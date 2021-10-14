@@ -6,7 +6,7 @@ using TTGModel;
 
 namespace TTGDL
 {
-    public class StoreRepository : IRepository
+    public class StoreRepository : IStoreRepository
     {
         //reference to database
         private const string _filePath = "./../TTGDL/Database/Store.json";

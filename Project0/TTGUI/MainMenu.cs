@@ -7,19 +7,18 @@ namespace TTGUI
     {
         public void Menu()
         {
-            Console.WriteLine(String.Join(Environment.NewLine,
-            "______________________________",
-            "Welcome to the main Menu",
-            "Where do you want to go?",
-            "[1] store Menu",
-            "[2] Customer Menu",
-            "[3] Orders Menu",
-            "[4] Products Menu",
-            "[5] LineItem Menu",
-            "[0] Exit",
-            "______________________________"
-           
-            ));
+          
+            Console.WriteLine(
+            "______________________________\n"+
+            "Welcome to the main Menu\n"+
+            "Where do you want to go?\n"+
+            "[1] store Menu\n"+
+            "[2] Customer Menu\n"+
+            "[3] Orders Menu\n"+
+            "[4] Products Menu\n"+
+            "[5] LineItem Menu\n"+
+            "[0] Exit\n"+
+            "______________________________");
         }
 
         public MenuType Navigation()
