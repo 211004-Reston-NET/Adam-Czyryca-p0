@@ -1,7 +1,13 @@
 [
   {
     "Name": "adam",
-    "Address": "123Cool street",
+    "Address": "23 code street",
+    "EmailPhone": "123456",
+    "OrderList": null
+  },
+    {
+    "Name": "rimiru ",
+    "Address": "forest of jura",
     "EmailPhone": "123456",
     "OrderList": null
   }

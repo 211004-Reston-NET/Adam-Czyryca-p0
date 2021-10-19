@@ -52,12 +52,15 @@ namespace TTGUI
                     _cust.EmailPhone="";
                     return MenuType.AddCustomerMenu;
                 case "3":
+                    Console.Write("Name: ");
                     _cust.Name = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "2":
+                    Console.Write("Address: ");
                     _cust.Address = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "1":
+                    Console.Write("Email/Phone: ");
                     _cust.EmailPhone = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "0":

@@ -9,10 +9,10 @@ namespace TTGUI
             "____________________________________",
             "Welcome to the Order page",
             "What would you like to do?",
-            "[1] View items in your order",
-            "[2] View Store purchase location",
-            "[3] View Total Price",
-            "[0] Go back to main Menu",
+            "[1] Place order",
+            "[2] View current orders",
+            "[3] to product menu",
+            "[0] Go back to logIn",
             "______________________________________"
 
             )); 
@@ -25,11 +25,11 @@ namespace TTGUI
             switch (userChoice)
             {
                 case "3":
-                    return MenuType.StoreMenu;
+                    return MenuType.ProductMenu;
                 case "2":
-                    return MenuType.StoreMenu;
+                    return MenuType.OrdersMenu;
                 case "1":
-                    return MenuType.StoreMenu;
+                    return MenuType.OrdersMenu;
                 case "0":
                     return MenuType.MainMenu;
                 default:

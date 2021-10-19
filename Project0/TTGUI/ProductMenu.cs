@@ -9,11 +9,9 @@ namespace TTGUI
             "____________________________________",
             "Welcome to the Product information page",
             "What would you like to do?",
-            "[1] View product names",
-            "[2] View product price",
-            "[3] View project description",
-            "[4] View project category",
-            "[0] Go back to main Menu",
+            "[1] Add a Product",
+            "[2] View products",
+            "[0] Go back to Orders Menu",
             "______________________________________"
 
             )); 
@@ -25,16 +23,13 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                case "4":
-                 return MenuType.ProductMenu;
-                case "3":
-                 return MenuType.ProductMenu;;
+                
                 case "2":
-                 return MenuType.ProductMenu;;
+                 return MenuType.ShowProducts;
                 case "1":
-                 return MenuType.ProductMenu;;
+                 return MenuType.AddProductsMenu;
                 case "0": 
-                 return MenuType.MainMenu;
+                 return MenuType.OrdersMenu;
                 default:
                  Console.WriteLine(" Enter a Valid option ");
                  return MenuType.ProductMenu;;

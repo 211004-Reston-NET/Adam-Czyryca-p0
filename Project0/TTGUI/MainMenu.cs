@@ -9,16 +9,12 @@ namespace TTGUI
         {
           
             Console.WriteLine(
-            "______________________________\n"+
-            "Welcome to the main Menu\n"+
-            "Where do you want to go?\n"+
-            "[1] store Menu\n"+
-            "[2] Customer Menu\n"+
-            "[3] Orders Menu\n"+
-            "[4] Products Menu\n"+
-            "[5] LineItem Menu\n"+
-            "[0] Exit\n"+
-            "______________________________");
+            "___________________________\n"+
+            "[1] - LogIn\n"+
+            "[2] - New Customer\n"+
+            "[0] - Exit\n"+
+            "____________________________"
+            );
         }
 
         public MenuType Navigation()
@@ -27,16 +23,11 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                case "5":
-                 return MenuType.LineItemMenu;
-                case "4":
-                    return MenuType.ProductMenu;
-                case "3":
-                    return MenuType.OrdersMenu;
+               
                 case "2":
-                 return MenuType.CustomerMenu;
+                    return MenuType.AddCustomerMenu;
                 case "1":
-                    return MenuType.StoreMenu;
+                    return MenuType.LogInMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

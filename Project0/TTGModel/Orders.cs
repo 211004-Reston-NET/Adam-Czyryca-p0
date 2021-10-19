@@ -4,10 +4,18 @@ namespace TTGModel
     public class Orders 
     {
         /*properties:
+         orderID
          list of line items
          storefront location the order was placed
          Total price
         */
+        private int _orderID;
+        public int OrderID
+        {
+            get { return _orderID; }
+            set { _orderID = value; }
+        }
+        
         private string _lineList;
         public string LineList
         {

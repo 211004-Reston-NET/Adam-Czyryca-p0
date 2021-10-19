@@ -16,8 +16,8 @@ namespace TTGModel
             set { _name = value; }
         }
         
-        private float _price;
-        public float Price
+        private double _price;
+        public double Price
         {
             get { return _price; }
             set { _price = value; }
@@ -36,5 +36,9 @@ namespace TTGModel
             set { _category = value; }
         }
         
+        public override string ToString()
+        {
+            return $"Name: {Name}\nPrice: {Price}";
+        }
     }
 }

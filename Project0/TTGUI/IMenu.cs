@@ -10,8 +10,12 @@ namespace TTGUI
         ProductMenu,
         AddStoreMenu,
         AddCustomerMenu,
+        AddOrder,
+        AddProductsMenu,
         ShowStores,
         ShowCustomers,
+        ShowProducts,
+        LogInMenu,
         Exit
     }
 

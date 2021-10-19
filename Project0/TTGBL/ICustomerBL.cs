@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TTGModel;
+
 namespace TTGBL
 {
     public interface ICustomerBL
