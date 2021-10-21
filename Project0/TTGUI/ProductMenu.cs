@@ -11,7 +11,7 @@ namespace TTGUI
             "What would you like to do?",
             "[1] Add a Product",
             "[2] View products",
-            "[0] Go back to Orders Menu",
+            "[0] Go back",
             "______________________________________"
 
             )); 
@@ -23,13 +23,14 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                
+
                 case "2":
                  return MenuType.ShowProducts;
                 case "1":
                  return MenuType.AddProductsMenu;
                 case "0": 
-                 return MenuType.OrdersMenu;
+                    //return MenuType.OrdersMenu;
+                    return MenuType.TestingMenu;
                 default:
                  Console.WriteLine(" Enter a Valid option ");
                  return MenuType.ProductMenu;;

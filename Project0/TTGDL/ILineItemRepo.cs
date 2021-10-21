@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using TTGModel;
-namespace TTGBL
+namespace TTGDL
 {
-    public interface IStoreBL
-    {
+    public interface ILineItemRepo
+{
         /// <summary>
         /// this will return a list of stores stored in the database
         /// it will alse capitalize the store name
         /// </summary>
         /// <returns></returns>
-        List<Store> GetAllStores();
+        List<LineItems> GetAllLineItems();
 
         /// <summary>
         /// adds a new store to the database
         /// </summary>
         /// <param name="p_store"></param>
         /// <returns></returns>
-        Store AddStore(Store p_store);
-
+        LineItems AddLineItem(LineItems p_store);
     }
 }

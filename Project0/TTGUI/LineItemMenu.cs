@@ -9,9 +9,9 @@ namespace TTGUI
             "___________________________________________",
             "Welcome to the LineItem information page",
             "What would you like to do?",
-            "[1] view product quantity",
-            "[2] Edit product quantity",
-            "[0] Go back to main Menu",
+            "[1] AddLineItem",
+            "[2] View LineItems",
+            "[0] Go back",
             "___________________________________________"
             )); 
         }
@@ -25,9 +25,10 @@ namespace TTGUI
                 case "2":
                  return MenuType.LineItemMenu;
                 case "1":
-                 return MenuType.LineItemMenu;
+                 return MenuType.AddLineItemsMenu;
                 case "0":
-                 return MenuType.MainMenu;
+                    //return MenuType.MainMenu;
+                    return MenuType.TestingMenu;
                 default:
                  Console.WriteLine(" Enter a Valid option ");
                  return MenuType.LineItemMenu;

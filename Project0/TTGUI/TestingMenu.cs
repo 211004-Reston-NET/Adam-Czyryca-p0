@@ -3,15 +3,19 @@ using System;
 namespace TTGUI
 {
 
-    public class MainMenu : IMenu
+    public class TestingMenu : IMenu
     {
         public void Menu()
         {
           
             Console.WriteLine(
             "___________________________\n"+
-            "[1] - LogIn\n"+
-            "[2] - New Customer\n"+
+            "This is the testing menu\n"+
+            "[1] - CustomerMenu\n"+
+            "[2] - StoreMenu\n"+
+            "[3] - OrdersMenu\n"+
+            "[4] - ProductMenu\n"+
+            "[5] - LineItemMenu\n"+
             "[0] - Exit\n"+
             "____________________________"
             );
@@ -23,12 +27,16 @@ namespace TTGUI
 
             switch (userChoice)
             {
-               
+                case "5":
+                    return MenuType.LineItemMenu;
+                case "4":
+                    return MenuType.ProductMenu;
+                case "3":
+                    return MenuType.OrdersMenu;
                 case "2":
-                    return MenuType.AddCustomerMenu;
+                    return MenuType.StoreMenu;
                 case "1":
-                    return MenuType.LogInMenu;
-                    //return MenuType.CustomerMenu;
+                    return MenuType.CustomerMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

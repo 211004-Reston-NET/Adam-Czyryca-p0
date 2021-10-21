@@ -14,7 +14,7 @@ namespace TTGUI
             "[3] Show all Customers\n"+
             "[2] Add new customer\n"+
             "[1] View your orders\n"+
-            "[0] Go back to main Menu\n"+
+            "[0] Go back\n"+
             "_______________________________________________\n");
 
 
@@ -27,14 +27,16 @@ namespace TTGUI
 
             switch (userChoice)
             {
+
                 case "3":
                     return MenuType.ShowCustomers;
                 case "2":
                     return MenuType.AddCustomerMenu;
                 case "1":
-                 return MenuType.CustomerMenu;
+                    return MenuType.CustomerMenu;
                 case "0": 
-                 return MenuType.MainMenu;
+                    //return MenuType.MainMenu;
+                    return MenuType.TestingMenu;
                 default:
                  Console.WriteLine(" Enter a Valid option ");
                  return MenuType.CustomerMenu;

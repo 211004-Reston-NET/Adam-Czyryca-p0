@@ -5,27 +5,27 @@ using TTGModel;
 
 namespace TTGUI
 {
-    public class ShowCustomers : IMenu
+    public class CurrentProduct : IMenu
     {
-        private ICustomerBL _custBL;
-        public static string _findCustName;
-        public ShowCustomers(ICustomerBL p_custBL)
+        private IProductBL _custBL;
+
+        public CurrentProduct(IProductBL p_custBL)
         {
             _custBL=p_custBL;
         }
         public void Menu()
         {
-            Console.WriteLine("Registered Customers");
-            List<Customer> ListOfCustomers = _custBL.GetAllCustomers();
-            foreach (Customer customer in ListOfCustomers)
+            List<Products> ListOfProducts = _custBL.GetProduct(ShowProducts._findProdName);
+
+            Console.WriteLine("This is the search result");
+            foreach (Products Product in ListOfProducts)
             {
                 Console.WriteLine(
                     "-------------------------\n"+
-                    $"{customer}\n"+
+                    $"{Product}\n"+
                     "-------------------------\n"
                 ); 
             }
-            Console.WriteLine("[1] - search for customer");
             Console.WriteLine("[0] - Go back");
         }
 
@@ -34,17 +34,13 @@ namespace TTGUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "1":
-                    Console.WriteLine("Enter a name for the customer you want to find");
-                    _findCustName = Console.ReadLine();
-                    return MenuType.CurrentCustomer;
                 case "0":
-                    return MenuType.CustomerMenu;
+                    return MenuType.ProductMenu;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
-                    return MenuType.ShowCustomers;
+                    return MenuType.CurrentProduct;
             }
         }
     }

@@ -17,5 +17,12 @@ namespace TTGBL
         /// <param name="p_cust"></param>
         /// <returns></returns>
         Customer AddCustomer(Customer p_cust);
+
+        /// <summary>
+        /// will return single customer 
+        /// </summary>
+        /// <param name="p_custName"></param>
+        /// <returns></returns>
+        List<Customer> GetCustomer(string p_custName); 
     }
 }

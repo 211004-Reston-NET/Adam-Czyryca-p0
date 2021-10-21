@@ -35,7 +35,8 @@ namespace TTGUI
                 case "1":
                     return MenuType.StoreMenu;
                 case "0":
-                    return MenuType.MainMenu;
+                    //return MenuType.MainMenu;
+                    return MenuType.TestingMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.StoreMenu;

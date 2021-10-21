@@ -1,3 +1,11 @@
 [
-    
+  {
+    "Product": {
+      "Name": "testProd",
+      "Price": 0,
+      "Description": null,
+      "Category": null
+    },
+    "Quantity": 4
+  }
 ]

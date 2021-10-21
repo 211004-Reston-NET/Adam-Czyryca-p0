@@ -12,6 +12,7 @@ namespace TTGUI
             "[1] Place order",
             "[2] View current orders",
             "[3] to product menu",
+            "[4] to customer menu",
             "[0] Go back to logIn",
             "______________________________________"
 
@@ -24,6 +25,8 @@ namespace TTGUI
 
             switch (userChoice)
             {
+                case "4":
+                    return MenuType.CustomerMenu;
                 case "3":
                     return MenuType.ProductMenu;
                 case "2":

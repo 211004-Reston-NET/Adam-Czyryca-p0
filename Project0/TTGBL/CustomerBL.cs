@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TTGDL;
 using TTGModel;
 
@@ -27,6 +28,17 @@ namespace TTGBL
                 listOfCustomers[i].Name = listOfCustomers[i].Name.ToUpper();
             }
             return listOfCustomers;
+        }
+
+        public List<Customer> GetCustomer(string p_name)
+        {
+            List<Customer> listOfCustomer = _custRepo.GetAllCustomers();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
     }
 }

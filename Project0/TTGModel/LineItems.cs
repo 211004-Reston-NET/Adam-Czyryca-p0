@@ -8,8 +8,8 @@ namespace TTGModel
          quantity
         */
 
-        private string _product;
-        public string Product
+        private Products _product;
+        public Products Product
         {
             get { return _product; }
             set { _product = value; }

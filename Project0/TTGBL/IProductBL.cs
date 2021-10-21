@@ -17,5 +17,12 @@ namespace TTGBL
         /// <param name="p_prod"></param>
         /// <returns></returns>
         Products AddProduct(Products p_prod);
+
+        /// <summary>
+        /// will return single product 
+        /// </summary>
+        /// <param name="p_prodName"></param>
+        /// <returns></returns>
+        List<Products> GetProduct(string p_prodName); 
     }
 }
