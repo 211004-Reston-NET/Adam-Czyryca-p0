@@ -11,9 +11,9 @@ namespace TTGDL
 
         private string _jsonString;
 
-        public Products AddProduct(Products _prod)
+        public Product AddProduct(Product _prod)
         {
-            List<Products> ListOfProducts = GetAllProducts();
+            List<Product> ListOfProducts = GetAllProducts();
             ListOfProducts.Add(_prod);
 
             _jsonString = JsonSerializer.Serialize(ListOfProducts, new JsonSerializerOptions{WriteIndented=true});
@@ -24,11 +24,11 @@ namespace TTGDL
 
         }
 
-        public List<Products> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
             _jsonString = File.ReadAllText(_filePath);
 
-            return JsonSerializer.Deserialize<List<Products>>(_jsonString);
+            return JsonSerializer.Deserialize<List<Product>>(_jsonString);
         }
 
     

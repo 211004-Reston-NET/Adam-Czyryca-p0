@@ -11,14 +11,12 @@ namespace TTGUI
             "_______________________________________________\n"+
             "Welcome to the Customer information page\n"+
             "What would you like to do?\n"+
-            "[3] Show all Customers\n"+
+            "[1] Show all Customers\n"+
             "[2] Add new customer\n"+
-            "[1] View your orders\n"+
+            "[3] View your orders\n"+
             "[0] Go back\n"+
             "_______________________________________________\n");
 
-
-             
         }
 
         public MenuType Navigation()
@@ -28,11 +26,11 @@ namespace TTGUI
             switch (userChoice)
             {
 
-                case "3":
+                case "1":
                     return MenuType.ShowCustomers;
                 case "2":
                     return MenuType.AddCustomerMenu;
-                case "1":
+                case "3":
                     return MenuType.CustomerMenu;
                 case "0": 
                     //return MenuType.MainMenu;

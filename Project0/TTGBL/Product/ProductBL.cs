@@ -16,14 +16,14 @@ namespace TTGBL
         }
 
 
-        public Products AddProduct(Products p_prod)
+        public Product AddProduct(Product p_prod)
         {
             return _prodRepo.AddProduct(p_prod);
         }
 
-        public List<Products> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            List<Products> ListOfProducts = _prodRepo.GetAllProducts();
+            List<Product> ListOfProducts = _prodRepo.GetAllProducts();
             for (int i = 0; i < ListOfProducts.Count; i++)
             {
                 ListOfProducts[i].Name = ListOfProducts[i].Name.ToUpper();
@@ -31,10 +31,10 @@ namespace TTGBL
             return ListOfProducts;
         }
 
-        public List<Products> GetProduct(string p_prodName)
+        public List<Product> GetProduct(string p_prodName)
         {
             
-            List<Products> listOfProducts = _prodRepo.GetAllProducts();
+            List<Product> listOfProducts = _prodRepo.GetAllProducts();
             
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition

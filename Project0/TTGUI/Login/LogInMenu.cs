@@ -7,7 +7,7 @@ namespace TTGUI
 {
     public class LogInMenu : IMenu
     {
-        private static Customer _cust = new Customer();
+        //private static Customer SingletonCustomer._cust = new Customer();
         public ILogInBL _ICustBL;
         public LogInMenu(ILogInBL p_CustBL)
         {
@@ -18,8 +18,8 @@ namespace TTGUI
             Console.WriteLine(
             "___________________________\n" +
             "Welcome to the LogIn Menu\n" +
-            $"[1] - Name: {_cust.Name}\n" +
-            $"[2] - Email/Phone: {_cust.EmailPhone} \n" +
+            $"[1] - Name: {SingletonCustomer.Customer.Name}\n" +
+            $"[2] - Email/Phone: {SingletonCustomer.Customer.EmailPhone} \n" +
             "[3] - LogIn\n" +
             "[0] - Exit\n" +
             "____________________________"
@@ -44,7 +44,7 @@ namespace TTGUI
                     }
                     */
 
-                    Boolean match = _ICustBL.VerifyCustomerID(_cust.Name, _cust.EmailPhone);
+                    Boolean match = _ICustBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
                     if (match == true)
                     {
                         //Console.ReadLine();
@@ -53,11 +53,11 @@ namespace TTGUI
                     return MenuType.LogInMenu;
                 case "2":
                     Console.Write("Email/phone: ");
-                    _cust.EmailPhone = Console.ReadLine();
+                    SingletonCustomer.Customer.EmailPhone = Console.ReadLine();
                     return MenuType.LogInMenu;
                 case "1":
                     Console.Write("Name: ");
-                    _cust.Name = Console.ReadLine();
+                    SingletonCustomer.Customer.Name = Console.ReadLine();
                     return MenuType.LogInMenu;
                 case "0":
                     return MenuType.MainMenu;

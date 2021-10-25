@@ -7,6 +7,7 @@ namespace TTGUI
     {
 
         private static LineItems _LineItem = new LineItems();
+        private static Product _prod = new Product();
         private ILineItemBL _LineItemsBL;
 
         public AddLineItemsMenu(ILineItemBL p_LineItemsBL)
@@ -18,7 +19,7 @@ namespace TTGUI
 
             Console.WriteLine("______________________________");
             Console.WriteLine("Adding a new LineItems");
-            Console.WriteLine("Product - " + Singleton.Products.Name);
+            Console.WriteLine("Product - " + SingletonProduct.product.Name);
             Console.WriteLine("Quantity - " + _LineItem.Quantity);
             Console.WriteLine("[1] - Input value for product");
             Console.WriteLine("[2] - Input value for Quantity");
@@ -34,7 +35,7 @@ namespace TTGUI
             switch (userChoice)
             {
                 case "3":
-                    _LineItem.Product = Singleton.Products;
+                    _LineItem.Product = SingletonProduct.product;
                     _LineItemsBL.AddLineItem(_LineItem);
                     Console.WriteLine("LineItems has been added successfully");
                     Console.WriteLine("Press enter to continue..");
@@ -48,8 +49,8 @@ namespace TTGUI
                     return MenuType.AddLineItemsMenu;
                 case "1":
                     Console.Write("Product Name: ");
-                    Singleton.Products.Name = Console.ReadLine();
-                    
+                    SingletonProduct.product.Name = Console.ReadLine();
+
                     //_LineItems.Product= Singleton.Products;
                     return MenuType.AddLineItemsMenu;
                 case "0":

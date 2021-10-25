@@ -17,9 +17,9 @@ namespace TTGUI
         public void Menu()
         {
             Console.WriteLine("ShowProducts in Database");
-            List<Products> ListOfProducts = _prodBL.GetAllProducts();
+            List<Product> ListOfProducts = _prodBL.GetAllProducts();
 
-            foreach (Products product in ListOfProducts)
+            foreach (Product product in ListOfProducts)
             {
                 Console.WriteLine("------------------------");
                 Console.WriteLine(product);

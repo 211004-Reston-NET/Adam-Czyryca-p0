@@ -7,5 +7,14 @@
       "Category": null
     },
     "Quantity": 4
+  },
+  {
+    "Product": {
+      "Name": "testLine",
+      "Price": 0,
+      "Description": null,
+      "Category": null
+    },
+    "Quantity": 5
   }
 ]

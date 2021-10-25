@@ -28,5 +28,11 @@
     "Address": "debug dr",
     "ProdList": null,
     "OrderList": null
+  },
+  {
+    "Name": "teststore",
+    "Address": "location",
+    "ProdList": null,
+    "OrderList": null
   }
 ]

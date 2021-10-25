@@ -7,7 +7,7 @@ namespace TTGModel
      description
      category
     */
-    public class Products
+    public class Product
     {
         private string _name;
         public string Name

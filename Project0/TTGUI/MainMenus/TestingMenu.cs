@@ -7,16 +7,17 @@ namespace TTGUI
     {
         public void Menu()
         {
-          
+
             Console.WriteLine(
-            "___________________________\n"+
-            "This is the testing menu\n"+
-            "[1] - CustomerMenu\n"+
-            "[2] - StoreMenu\n"+
-            "[3] - OrdersMenu\n"+
-            "[4] - ProductMenu\n"+
-            "[5] - LineItemMenu\n"+
-            "[0] - Exit\n"+
+            $"Current User: {SingletonCustomer.Customer.Name}\n" +
+            "___________________________\n" +
+            "This is the testing menu\n" +
+            "[1] - CustomerMenu\n" +
+            "[2] - StoreMenu\n" +
+            "[3] - OrdersMenu\n" +
+            "[4] - ProductMenu\n" +
+            "[5] - LineItemMenu\n" +
+            "[0] - Exit\n" +
             "____________________________"
             );
         }

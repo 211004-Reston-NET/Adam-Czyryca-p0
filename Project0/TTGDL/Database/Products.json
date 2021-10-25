@@ -52,5 +52,11 @@
     "Price": 5.8,
     "Description": null,
     "Category": null
+  },
+  {
+    "Name": "testProd",
+    "Price": 7,
+    "Description": null,
+    "Category": null
   }
 ]

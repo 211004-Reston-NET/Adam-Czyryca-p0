@@ -15,10 +15,10 @@ namespace TTGUI
         }
         public void Menu()
         {
-            List<Products> ListOfProducts = _custBL.GetProduct(ShowProducts._findProdName);
+            List<Product> ListOfProducts = _custBL.GetProduct(ShowProducts._findProdName);
 
             Console.WriteLine("This is the search result");
-            foreach (Products Product in ListOfProducts)
+            foreach (Product Product in ListOfProducts)
             {
                 Console.WriteLine(
                     "-------------------------\n"+

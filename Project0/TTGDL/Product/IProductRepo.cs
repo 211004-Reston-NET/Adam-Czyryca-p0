@@ -10,12 +10,12 @@ namespace TTGDL
         /// </summary>
         /// <param name="_prod"></param>
         /// <returns></returns>
-        Products AddProduct(Products _prod);
+        Product AddProduct(Product _prod);
 
         /// <summary>
         /// will retrive a list of all products 
         /// </summary>
         /// <returns></returns>
-        List<Products> GetAllProducts();
+        List<Product> GetAllProducts();
     }
 }

@@ -6,7 +6,7 @@ namespace TTGUI
     public class AddProductsMenu : IMenu
     {
         
-        private static Products _products = new Products();
+        private static Product _products = new Product();
         private IProductBL _productsBL;
 
         public AddProductsMenu(IProductBL p_productsBL)
