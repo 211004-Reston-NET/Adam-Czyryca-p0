@@ -8,7 +8,7 @@ namespace TTGUI
     public class ShowProducts : IMenu
     {
         public IProductBL _prodBL;//IprodBL
-        public static string _findProdName;
+        //public static string _findProdName;
         public ShowProducts(IProductBL p_prodBL)//IprodBL
         {
             _prodBL=p_prodBL;
@@ -37,7 +37,7 @@ namespace TTGUI
             {
                 case "1":
                     Console.WriteLine("Enter a name for the product you want to find");
-                    _findProdName = Console.ReadLine();
+                    SingletonProduct.product.Name = Console.ReadLine();
                     return MenuType.CurrentProduct;
                 case "0":
                     return MenuType.ProductMenu;

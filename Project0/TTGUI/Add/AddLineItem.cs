@@ -5,7 +5,7 @@ namespace TTGUI
 {
     public class AddLineItemsMenu : IMenu
     {
-
+        /*
         private static LineItems _LineItem = new LineItems();
         private static Product _prod = new Product();
         private ILineItemBL _LineItemsBL;
@@ -49,6 +49,7 @@ namespace TTGUI
                     return MenuType.AddLineItemsMenu;
                 case "1":
                     Console.Write("Product Name: ");
+                    
                     SingletonProduct.product.Name = Console.ReadLine();
 
                     //_LineItems.Product= Singleton.Products;
@@ -59,6 +60,16 @@ namespace TTGUI
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.CustomerMenu;
             }
+        }
+        */
+        public void Menu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public MenuType Navigation()
+        {
+            throw new NotImplementedException();
         }
     }
 }

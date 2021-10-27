@@ -1,37 +1,26 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 namespace TTGModel
 {
     public class Store
     {
-        /*Properties:
-         name
-         address
-         list of products
-         list of orders
-        */
-       
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set 
-            { 
+
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+
                 /*
                 if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
                 {
                     throw new Exception("Name can only hold letters!");
                 }
                 */
-                _name = value;
-            }
-        }
         
         public string Address{get; set;}
-        
-        public string ProdList{get; set;}
-        
-        public string OrderList{get; set;}
+
+        public List<LineItems> LineItems { get; set; }
+        public List<Manager> Managers { get; set; }
+        public List<Orders> Orders { get; set; }
+
 
         public override string ToString()
         {

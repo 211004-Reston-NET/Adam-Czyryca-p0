@@ -15,7 +15,7 @@ namespace TTGUI
         }
         public void Menu()
         {
-            List<Product> ListOfProducts = _custBL.GetProduct(ShowProducts._findProdName);
+            List<Product> ListOfProducts = _custBL.GetProduct(SingletonProduct.product.Name);
 
             Console.WriteLine("This is the search result");
             foreach (Product Product in ListOfProducts)
