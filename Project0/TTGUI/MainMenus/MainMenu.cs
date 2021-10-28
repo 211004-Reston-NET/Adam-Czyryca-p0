@@ -11,7 +11,7 @@ namespace TTGUI
             Console.WriteLine(
             "___________________________\n"+
             "[1] - LogIn\n"+
-            "[2] - New Customer\n"+
+            "[2] - Sing up\n"+
             "[0] - Exit\n"+
             "____________________________"
             );

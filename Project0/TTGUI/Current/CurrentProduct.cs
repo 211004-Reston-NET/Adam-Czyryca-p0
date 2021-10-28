@@ -7,16 +7,17 @@ namespace TTGUI
 {
     public class CurrentProduct : IMenu
     {
-        private IProductBL _custBL;
+        private IProductBL _prodBL;
 
-        public CurrentProduct(IProductBL p_custBL)
+        public CurrentProduct(IProductBL p_prodBL)
         {
-            _custBL=p_custBL;
+            _prodBL=p_prodBL;
         }
         public void Menu()
         {
-            List<Product> ListOfProducts = _custBL.GetProduct(SingletonProduct.product.Name);
+            List<Product> ListOfProducts = _prodBL.GetProduct(SingletonProduct.product.Name);
 
+            Console.WriteLine(SingletonProduct.product.Name);
             Console.WriteLine("This is the search result");
             foreach (Product Product in ListOfProducts)
             {

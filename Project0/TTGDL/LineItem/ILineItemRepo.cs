@@ -9,13 +9,15 @@ namespace TTGDL
         /// it will alse capitalize the store name
         /// </summary>
         /// <returns></returns>
-        List<LineItems> GetAllLineItems();
+        List<LineItem> GetAllLineItems();
 
         /// <summary>
-        /// adds a new store to the database
+        /// adds line item with refence to the product and string 
         /// </summary>
-        /// <param name="p_store"></param>
+        /// <param name="p_LineItem"></param>
+        /// <param name="ProdName"></param>
+        /// <param name="StoreName"></param>
         /// <returns></returns>
-        LineItems AddLineItem(LineItems p_store);
+        LineItem AddLineItem(LineItem p_LineItem);
     }
 }

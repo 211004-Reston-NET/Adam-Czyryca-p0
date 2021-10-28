@@ -17,5 +17,12 @@ namespace TTGDL
         /// </summary>
         /// <returns></returns>
         List<Product> GetAllProducts();
+
+        /// <summary>
+        /// will find the product with the passed id
+        /// </summary>
+        /// <param name="p_prodID"></param>
+        /// <returns></returns>
+        Product GetProductByID(int p_prodID);
     }
 }

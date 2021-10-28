@@ -1,31 +1,42 @@
 using System;
 using TTGModel;
 using TTGBL;
+using System.Collections.Generic;
+
 namespace TTGUI
 {
     public class AddLineItemsMenu : IMenu
     {
-        /*
-        private static LineItems _LineItem = new LineItems();
-        private static Product _prod = new Product();
-        private ILineItemBL _LineItemsBL;
 
-        public AddLineItemsMenu(ILineItemBL p_LineItemsBL)
+        private static LineItem _LineItem = new LineItem();
+        //string ProdName;
+        private ILineItemBL _LineItemsBL;
+        private IProductBL _prodBL;
+
+        private IStoreBL _storeBL;
+
+        public AddLineItemsMenu(ILineItemBL p_LineItemsBL, IProductBL p_prodBL, IStoreBL p_storeBL)
         {
             _LineItemsBL = p_LineItemsBL;
+            _prodBL = p_prodBL;
+            _storeBL = p_storeBL;
         }
         public void Menu()
         {
+            Console.WriteLine(
+            "____________________________\n" +
+            "Add LineItem Menu\n" +
+            $"Product - {SingletonProduct.product.Name}\n" +
+            $"Quantity -{_LineItem.Quantity}\n" +
+            $"Store - {SingletonStore.store.Name}\n" +
+            "[1] - Input value for product\n" +
+            "[2] - Input value for Quantity\n" +
+            "[3] - Input value for store\n" +
+            "[4] - Submit Information\n" +
+            "[0] - Go Back\n" +
+            "______________________________\n"
+            );
 
-            Console.WriteLine("______________________________");
-            Console.WriteLine("Adding a new LineItems");
-            Console.WriteLine("Product - " + SingletonProduct.product.Name);
-            Console.WriteLine("Quantity - " + _LineItem.Quantity);
-            Console.WriteLine("[1] - Input value for product");
-            Console.WriteLine("[2] - Input value for Quantity");
-            Console.WriteLine("[3] - Add LineItems");
-            Console.WriteLine("[0] - Go Back");
-            Console.WriteLine("______________________________");
         }
 
         public MenuType Navigation()
@@ -34,8 +45,64 @@ namespace TTGUI
 
             switch (userChoice)
             {
+
+                case "1":
+                    Boolean run = true;
+                    while (run == true)
+                    {
+                        Console.Write("Product Name: ");
+                        SingletonProduct.product.Name = Console.ReadLine();
+                        List<Product> FoundProd = new List<Product>();
+                        FoundProd = _prodBL.GetProduct(SingletonProduct.product.Name);
+                        Console.WriteLine($"Is this correct [Y] [N]: {FoundProd[0].Name}");
+                        String result = Console.ReadLine();
+                        if (result.ToUpper() == "Y")
+                        {
+                            _LineItem.Product = (int)FoundProd[0].Id;
+                            Console.WriteLine(_LineItem.Product);
+                            SingletonProduct.product.Name = FoundProd[0].Name;
+                            run = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter a More specific name or check that the Product exists");
+                            Console.WriteLine("press enter to continue...");
+                            Console.ReadLine();
+                        }
+                    }
+
+                    return MenuType.AddLineItemsMenu;
+
+                case "2":
+                    Console.Write("Quantity: ");
+                    _LineItem.Quantity = Convert.ToInt32(Console.ReadLine());
+                    return MenuType.AddLineItemsMenu;
                 case "3":
-                    _LineItem.Product = SingletonProduct.product;
+                    Boolean run2 = true;
+                    while (run2 == true)
+                    {
+                        Console.Write("Store Name: ");
+                        SingletonStore.store.Name = Console.ReadLine();
+                        List<Store> FoundStore = new List<Store>();
+                        FoundStore = _storeBL.GetStore(SingletonStore.store.Name);
+                        Console.WriteLine($"Is this correct [Y] [N]: {FoundStore[0].Name}");
+                        String result = Console.ReadLine();
+                        if (result.ToUpper() == "Y")
+                        {
+                            _LineItem.Store = FoundStore[0].Id;
+                            SingletonStore.store.Name = FoundStore[0].Name;
+                            run2 = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter a More specific name or check that the store exists");
+                            Console.WriteLine("press enter to continue...");
+                            Console.ReadLine();
+                        }
+                    }
+
+                    return MenuType.AddLineItemsMenu;
+                case "4":
                     _LineItemsBL.AddLineItem(_LineItem);
                     Console.WriteLine("LineItems has been added successfully");
                     Console.WriteLine("Press enter to continue..");
@@ -43,33 +110,13 @@ namespace TTGUI
                     //_LineItems.Product="";
                     //_LineItems.Quantity="";
                     return MenuType.AddLineItemsMenu;
-                case "2":
-                    Console.Write("Quantity: ");
-                    _LineItem.Quantity = Convert.ToInt32(Console.ReadLine());
-                    return MenuType.AddLineItemsMenu;
-                case "1":
-                    Console.Write("Product Name: ");
-                    
-                    SingletonProduct.product.Name = Console.ReadLine();
 
-                    //_LineItems.Product= Singleton.Products;
-                    return MenuType.AddLineItemsMenu;
                 case "0":
                     return MenuType.LineItemMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.CustomerMenu;
             }
-        }
-        */
-        public void Menu()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MenuType Navigation()
-        {
-            throw new NotImplementedException();
         }
     }
 }

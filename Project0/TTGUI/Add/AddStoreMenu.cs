@@ -7,9 +7,9 @@ namespace TTGUI
     {
         
         private static Store _store = new Store();
-        private IStoreBL _storeBL;//IStoreBL
+        private IStoreBL _storeBL;
 
-        public AddStoreMenu(IStoreBL p_storeBL)//IstoreBL
+        public AddStoreMenu(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }

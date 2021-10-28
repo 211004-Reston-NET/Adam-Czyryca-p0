@@ -7,11 +7,11 @@ namespace TTGModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double? Price { get; set; }
+        public double Price { get; set; }
         public string Description { get; set; }
         public string Catagory { get; set; }
 
-        public List<LineItems> LineItems { get; set; }
+        public List<LineItem> LineItems { get; set; }
 
 
         public override string ToString()

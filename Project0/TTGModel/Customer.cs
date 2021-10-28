@@ -15,7 +15,7 @@ namespace TTGModel
         public string Address { get; set; }
         public string EmailPhone { get; set; }
 
-        public List<LineItems> OrderList{ get; set;}
+        public List<LineItem> OrderList{ get; set;}
         
         public override string ToString()
         {

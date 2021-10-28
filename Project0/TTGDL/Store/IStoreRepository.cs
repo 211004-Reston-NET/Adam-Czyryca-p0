@@ -17,5 +17,7 @@ namespace TTGDL
         /// <param name="p_store"></param>
         /// <returns></returns>
         Store AddStore(Store p_store);
+
+        
     }
 }

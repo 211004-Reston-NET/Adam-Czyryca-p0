@@ -9,13 +9,15 @@ namespace TTGBL
         /// it will alse capitalize the LineItems name
         /// </summary>
         /// <returns></returns>
-        List<LineItems> GetAllLineItems();
+        List<LineItem> GetAllLineItems();
 
         /// <summary>
-        /// adds a new LineItems to the database
+        /// add line item 
         /// </summary>
-        /// <param name="p_LineItems"></param>
+        /// <param name="p_LineItem"></param>
+        /// <param name="ProdName"></param>
+        /// <param name="StoreName"></param>
         /// <returns></returns>
-        LineItems AddLineItem(LineItems p_LineItems);
+        LineItem AddLineItem(LineItem p_LineItem);
     }
 }

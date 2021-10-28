@@ -17,7 +17,7 @@ namespace TTGModel
         
         public string Address{get; set;}
 
-        public List<LineItems> LineItems { get; set; }
+        public List<LineItem> LineItems { get; set; }
         public List<Manager> Managers { get; set; }
         public List<Orders> Orders { get; set; }
 

@@ -18,5 +18,13 @@ namespace TTGBL
         /// <returns></returns>
         Store AddStore(Store p_store);
 
+
+        /// <summary>
+        /// find a specific 
+        /// </summary>
+        /// <param name="p_storeName"></param>
+        /// <returns></returns>
+        List<Store> GetStore(string p_storeName);
+
     }
 }

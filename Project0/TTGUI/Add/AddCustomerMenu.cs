@@ -57,7 +57,7 @@ namespace TTGUI
                     return MenuType.AddCustomerMenu;
                 case "4":
                     _custBL.AddCustomer(_cust);
-                    Console.WriteLine("Store has been added successfully");
+                    Console.WriteLine("customer has been added successfully");
                     Console.WriteLine("Press enter to continue..");
                     Console.ReadLine();
                     _cust.Name = "";

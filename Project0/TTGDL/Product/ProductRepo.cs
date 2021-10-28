@@ -31,6 +31,9 @@ namespace TTGDL
             return JsonSerializer.Deserialize<List<Product>>(_jsonString);
         }
 
-    
+        public Product GetProductByID(int p_prodID)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

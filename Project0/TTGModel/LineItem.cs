@@ -1,7 +1,7 @@
 using System;
 namespace TTGModel
 {
-    public class LineItems
+    public class LineItem
     {
 
         public int Id { get; set; }

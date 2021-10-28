@@ -6,15 +6,15 @@ using System.Text.Json.Serialization;
 
 namespace TTGDL
 {
-    public class LineItemRepo : ILineItemRepo
+    public class LineItemRepo //: ILineItemRepo
     {
         private const string _filePath = "./../TTGDL/Database/LineItems.json";
 
         private string _jsonString;
 
-        public LineItems AddLineItem(LineItems _Line)
+        public LineItem AddLineItem(LineItem _Line)
         {
-            List<LineItems> ListOfLineItems = GetAllLineItems();
+            List<LineItem> ListOfLineItems = GetAllLineItems();
             ListOfLineItems.Add(_Line);
 
             /*
@@ -33,11 +33,11 @@ namespace TTGDL
 
         }
 
-        public List<LineItems> GetAllLineItems()
+        public List<LineItem> GetAllLineItems()
         {
             _jsonString = File.ReadAllText(_filePath);
 
-            return JsonSerializer.Deserialize<List<LineItems>>(_jsonString);
+            return JsonSerializer.Deserialize<List<LineItem>>(_jsonString);
         }
 
 
