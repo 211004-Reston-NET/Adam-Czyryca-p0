@@ -12,6 +12,13 @@ namespace TTGDL
         List<LineItem> GetAllLineItems();
 
         /// <summary>
+        /// set all line items in a designated store
+        /// </summary>
+        /// <param name="_storeId"></param>
+        /// <returns></returns>
+        List<LineItem> GetAllLineItems(int _storeId);
+
+        /// <summary>
         /// adds line item with refence to the product and string 
         /// </summary>
         /// <param name="p_LineItem"></param>

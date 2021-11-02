@@ -16,7 +16,7 @@ namespace TTGModel
 
         public override string ToString()
         {
-            return $"Name: {Name}\nPrice: {Price}";
+            return $" ID: {Id}\n Name: {Name}\n Price: {Price}\n Description: {Description}\n Category: {Catagory}";
         }
     }
 }

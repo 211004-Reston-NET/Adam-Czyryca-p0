@@ -18,6 +18,11 @@ namespace TTGDL
         /// <returns></returns>
         Store AddStore(Store p_store);
 
-        
+        /// <summary>
+        /// finds a store obj whos id matches the passed int
+        /// </summary>
+        /// <param name="_storeId"></param>
+        /// <returns></returns>
+        Store GetStoreById(int _storeId);
     }
 }

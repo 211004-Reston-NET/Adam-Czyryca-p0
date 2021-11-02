@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-#nullable disable
-
-namespace TTGDL.Entities
+namespace TTGModel
 {
     public partial class ItemsInOrder
     {
@@ -12,7 +10,7 @@ namespace TTGDL.Entities
         public int Id { get; set; }
         public int Quantity { get; set; }
 
-        public virtual LineItem LineItem { get; set; }
-        public virtual Order Order { get; set; }
+        public LineItem LineItem { get; set; }
+        public Orders Order { get; set; }
     }
 }

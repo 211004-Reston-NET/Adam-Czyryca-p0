@@ -39,6 +39,7 @@ namespace TTGDL
             return _context.LineItems.Select(LineItem =>
                 new Model.LineItem()
                 {
+                    Id = LineItem.Id,
                     Quantity = LineItem.Quantity,
                     Product = LineItem.Product,
                     Store = LineItem.Store
@@ -47,5 +48,35 @@ namespace TTGDL
             ).ToList();
         }
 
+        public List<Model.LineItem> GetAllLineItems(int p_storeId)
+        {
+            //method syntax
+            return _context.LineItems
+            .Where(item => item.Store == p_storeId)
+            .Select(LineItem =>
+                new Model.LineItem()
+                {
+                    Id = LineItem.Id,
+                    Quantity = LineItem.Quantity,
+                    Product = LineItem.Product,
+                    Store = LineItem.Store
+                }
+
+            ).ToList();
+        }
+
+        public Model.LineItem GetMatchingLineItem(int p_itemID)
+        {
+            var result = _context.LineItems
+                .FirstOrDefault<Entity.LineItem>(item =>
+                    item.Id == p_itemID);
+            return new Model.LineItem()
+            {
+                Id = result.Id,
+                Quantity = result.Quantity,
+                Product = result.Product,
+                Store = result.Store
+            };
+        }
     }
 }

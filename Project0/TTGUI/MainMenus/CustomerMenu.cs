@@ -7,15 +7,18 @@ namespace TTGUI
     {
         public void Menu()
         {
-           Console.WriteLine(
-            "_______________________________________________\n"+
-            "Welcome to the Customer information page\n"+
-            "What would you like to do?\n"+
-            "[1] Show all Customers\n"+
-            "[2] Add new customer\n"+
-            "[3] View your orders\n"+
-            "[0] Go back\n"+
-            "_______________________________________________\n");
+            Console.WriteLine(
+             "------------------------------\n" +
+             $"Current User: {SingletonCustomer.Customer.Name}\n" +
+             "------------------------------\n" +
+             "_______________________________________________\n" +
+             "Welcome to the Customer information page\n" +
+             "What would you like to do?\n" +
+             "[1] Show all Customers\n" +
+             "[2] Add new customer\n" +
+             "[3] View your orders\n" +
+             "[0] Go back\n" +
+             "_______________________________________________\n");
 
         }
 
@@ -32,12 +35,12 @@ namespace TTGUI
                     return MenuType.AddCustomerMenu;
                 case "3":
                     return MenuType.CustomerMenu;
-                case "0": 
+                case "0":
                     //return MenuType.MainMenu;
                     return MenuType.TestingMenu;
                 default:
-                 Console.WriteLine(" Enter a Valid option ");
-                 return MenuType.CustomerMenu;
+                    Console.WriteLine(" Enter a Valid option ");
+                    return MenuType.CustomerMenu;
             }
         }
     }

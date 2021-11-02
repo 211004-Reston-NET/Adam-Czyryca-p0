@@ -1,25 +1,25 @@
 using System.Collections.Generic;
 using TTGModel;
 
-namespace TTGDL
+namespace TTGBL
 {
-    public interface IOrdersRepository 
+    public interface IOrderBL
     {
         /// <summary>
-        /// get all the orders in the DB and retern as a list
+        /// this will return a list of orders from the database
         /// </summary>
         /// <returns></returns>
         List<Orders> GetAllOrders();
 
         /// <summary>
-        /// add a new customer obj to the db 
+        /// adds a new Order to the database
         /// </summary>
-        /// <param name="cust"></param>
+        /// <param name="p_order"></param>
         /// <returns></returns>
-        Orders AddOrder(Orders cust);
+        Orders AddOrders(Orders p_order);
 
         /// <summary>
-        /// will return an order with the matching id
+        /// finds a specific order in the database
         /// </summary>
         /// <param name="p_orderId"></param>
         /// <returns></returns>

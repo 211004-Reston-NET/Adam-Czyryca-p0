@@ -13,7 +13,7 @@ namespace TTGUI
             "[2] View LineItems",
             "[0] Go back",
             "___________________________________________"
-            )); 
+            ));
         }
 
         public MenuType Navigation()
@@ -23,15 +23,15 @@ namespace TTGUI
             switch (UserChoice)
             {
                 case "2":
-                 return MenuType.LineItemMenu;
+                    return MenuType.ShowLineItems;
                 case "1":
-                 return MenuType.AddLineItemsMenu;
+                    return MenuType.AddLineItemsMenu;
                 case "0":
                     //return MenuType.MainMenu;
                     return MenuType.TestingMenu;
                 default:
-                 Console.WriteLine(" Enter a Valid option ");
-                 return MenuType.LineItemMenu;
+                    Console.WriteLine(" Enter a Valid option ");
+                    return MenuType.LineItemMenu;
             }
         }
     }

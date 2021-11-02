@@ -26,5 +26,12 @@ namespace TTGBL
         /// <returns></returns>
         List<Store> GetStore(string p_storeName);
 
+        /// <summary>
+        /// finds a store obj whos id matches the passed int
+        /// </summary>
+        /// <param name="_storeId"></param>
+        /// <returns></returns>
+        Store GetStoreById(int _storeId);
+
     }
 }

@@ -17,14 +17,14 @@ namespace TTGDL
 
         public Store AddStore(Store p_store)
         {
-           _context.Stores.Add
-             (
-                new Entity.Store()
-                {
-                    Name = p_store.Name,
-                    Address = p_store.Address,
-                }
-            );
+            _context.Stores.Add
+              (
+                 new Entity.Store()
+                 {
+                     Name = p_store.Name,
+                     Address = p_store.Address,
+                 }
+             );
             _context.SaveChanges();
             return p_store;
         }
@@ -36,11 +36,25 @@ namespace TTGDL
             return _context.Stores.Select(store =>
                 new Model.Store()
                 {
+                    Id = store.Id,
                     Name = store.Name,
                     Address = store.Address,
                 }
 
             ).ToList();
+        }
+
+        public Store GetStoreById(int p_storeId)
+        {
+            var result = _context.Stores
+                 .FirstOrDefault<Entity.Store>(store =>
+                     store.Id == p_storeId);
+            return new Model.Store()
+            {
+                Id = result.Id,
+                Name = result.Name,
+                Address = result.Address,
+            }; 
         }
     }
 }

@@ -40,5 +40,15 @@ namespace TTGBL
             //ToLower will lowercase the string to make it not case sensitive
             return listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        public Customer GetMatchingCustomer(string p_custName, string p_emailPhone)
+        {
+            return _custRepo.GetMatchingCustomer(p_custName, p_emailPhone);
+        }
+
+        public Customer GetMatchingCustomer(int p_custID)
+        {
+            return _custRepo.GetMatchingCustomer(p_custID);
+        }
     }
 }

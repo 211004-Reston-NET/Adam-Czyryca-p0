@@ -16,5 +16,20 @@ namespace TTGDL
         /// <param name="cust"></param>
         /// <returns></returns>
         Customer  AddCustomer(Customer cust);
+
+        /// <summary>
+        /// will return a single customer obj with name and email matching those passed in 
+        /// </summary>
+        /// <param name="_custName"></param>
+        /// <param name="_emailPhone"></param>
+        /// <returns></returns>
+        Customer GetMatchingCustomer(string _custName, string _emailPhone);
+
+        /// <summary>
+        ///  will return a single customer obj with an Id matching the passed int
+        /// </summary>
+        /// <param name="_custID"></param>
+        /// <returns></returns>
+        Customer GetMatchingCustomer(int _custID);
     }
 }

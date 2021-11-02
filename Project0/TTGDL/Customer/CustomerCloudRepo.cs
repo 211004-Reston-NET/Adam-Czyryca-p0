@@ -63,5 +63,33 @@ namespace TTGDL
             // }
             // return ListOfCustomers;
         }
+
+        public Model.Customer GetMatchingCustomer(string p_custName, string p_emailPhone)
+        {
+            var result = _context.Customers
+                .FirstOrDefault<Entity.Customer>(cust => 
+                    cust.Name == p_custName && cust.EmailPhone ==p_emailPhone);
+            return new Model.Customer()
+                {
+                    Id = result.Id,
+                    Name = result.Name,
+                    Address = result.Address,
+                    EmailPhone = result.EmailPhone
+                };
+        }
+
+        public Model.Customer GetMatchingCustomer(int p_custID)
+        {
+            var result = _context.Customers
+                .FirstOrDefault<Entity.Customer>(cust =>
+                    cust.Id == p_custID);
+            return new Model.Customer()
+            {
+                Id = result.Id,
+                Name = result.Name,
+                Address = result.Address,
+                EmailPhone = result.EmailPhone
+            };
+        }
     }
 }

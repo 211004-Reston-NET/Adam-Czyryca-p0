@@ -50,21 +50,21 @@ namespace TTGDL.Entities
 
             modelBuilder.Entity<ItemsInOrder>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("ItemsInOrder");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.LineItemId).HasColumnName("LineItem_ID");
 
                 entity.Property(e => e.OrderId).HasColumnName("Order_ID");
 
                 entity.HasOne(d => d.LineItem)
-                    .WithMany()
+                    .WithMany(p => p.ItemsInOrders)
                     .HasForeignKey(d => d.LineItemId)
                     .HasConstraintName("FKey_ToLineItem");
 
                 entity.HasOne(d => d.Order)
-                    .WithMany()
+                    .WithMany(p => p.ItemsInOrders)
                     .HasForeignKey(d => d.OrderId)
                     .HasConstraintName("FKey_ToOrder");
             });
@@ -78,11 +78,13 @@ namespace TTGDL.Entities
                 entity.HasOne(d => d.ProductNavigation)
                     .WithMany(p => p.LineItems)
                     .HasForeignKey(d => d.Product)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FKey_ToProduct");
 
                 entity.HasOne(d => d.StoreNavigation)
                     .WithMany(p => p.LineItems)
                     .HasForeignKey(d => d.Store)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FKey_ToStore_");
             });
 

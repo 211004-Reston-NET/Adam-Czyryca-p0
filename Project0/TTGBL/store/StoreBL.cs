@@ -42,5 +42,10 @@ namespace TTGBL
             return listOfStores.Where(store => store.Name.ToLower().Contains(p_storeName.ToLower())).ToList();
 
         }
+
+        public Store GetStoreById(int p_storeId)
+        {
+            return _repo.GetStoreById(p_storeId);
+        }
     }
 }

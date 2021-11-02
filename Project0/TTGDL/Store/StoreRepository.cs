@@ -33,5 +33,10 @@ namespace TTGDL
 
             return JsonSerializer.Deserialize<List<Store>>(_jsonString);
         }
+
+        public Store GetStoreById(int _storeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

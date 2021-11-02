@@ -7,11 +7,12 @@ namespace TTGUI
 {
     public class LogInMenu : IMenu
     {
-        //private static Customer SingletonCustomer._cust = new Customer();
-        public ILogInBL _ICustBL;
-        public LogInMenu(ILogInBL p_CustBL)
+        private ICustomerBL _ICustBL;
+        private ILogInBL _ILogBL;
+        public LogInMenu(ILogInBL p_LogBL, ICustomerBL p_ICustBL)
         {
-            _ICustBL = p_CustBL;
+            _ILogBL = p_LogBL;
+            _ICustBL = p_ICustBL;
         }
         public void Menu()
         {
@@ -32,22 +33,11 @@ namespace TTGUI
             switch (UserChoice)
             {
                 case "3":
-                    /*
-                    List<Customer> ListOfCustomers = _ICustBL.GetAllCustomers();
-                    foreach (Customer customer in ListOfCustomers)
-                    {
-                        if (customer.Name == _cust.Name.ToUpper() && customer.EmailPhone == _cust.EmailPhone)
-                        {
-                            //return MenuType.OrdersMenu;
-                            return MenuType.TestingMenu;
-                        }
-                    }
-                    */
 
-                    Boolean match = _ICustBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
+                    Boolean match = _ILogBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
                     if (match == true)
                     {
-                        //Console.ReadLine();
+                        SingletonCustomer.Customer = _ICustBL.GetMatchingCustomer(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
                         return MenuType.TestingMenu;
                     }
                     return MenuType.LogInMenu;

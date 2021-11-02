@@ -5,7 +5,7 @@ using TTGModel;
 
 namespace TTGDL
 {
-    public class CustRepository : ICustRepository
+    public class CustRepository //: ICustRepository
     {
         //the path to the teporary DB that is the json file 
         private const string _filePath = "./../TTGDL/Database/Customer.json";

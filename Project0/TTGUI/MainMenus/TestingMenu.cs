@@ -1,15 +1,22 @@
 using System;
+using TTGBL;
 
 namespace TTGUI
 {
 
     public class TestingMenu : IMenu
     {
+
         public void Menu()
         {
 
             Console.WriteLine(
+            "------------------------------\n" +
             $"Current User: {SingletonCustomer.Customer.Name}\n" +
+            "------------------------------\n" +
+            $"Current User: {SingletonCustomer.Customer.Id}\n" +
+            "------------------------------\n" +
+            $"Current User: {SingletonCustomer.Customer.EmailPhone}\n" +
             "___________________________\n" +
             "This is the testing menu\n" +
             "[1] - CustomerMenu\n" +

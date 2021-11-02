@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TTGDL;
-using TTGModel;
+using Model=TTGModel;
 
 namespace TTGBL
 {
@@ -17,9 +17,12 @@ namespace TTGBL
 
         public Boolean VerifyCustomerID(string p_custName, string p_custEmailPhone)
         {
-            List<Customer> listOfCustomer = _custRepo.GetAllCustomers();
+            List<Model.Customer> listOfCustomer = _custRepo.GetAllCustomers();
 
-            List<Customer> match = (listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_custName.ToLower())).ToList()).Where(cust => cust.EmailPhone.Contains(p_custEmailPhone)).ToList();
+            List<Model.Customer> match = (listOfCustomer
+                .Where(cust => cust.Name.ToLower().Contains(p_custName.ToLower())).ToList())
+                .Where(cust => cust.EmailPhone.Contains(p_custEmailPhone)).ToList();
+
             if (match[0].Name == p_custName && match[0].EmailPhone == p_custEmailPhone)
             {
                 return true;

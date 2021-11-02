@@ -11,14 +11,18 @@ namespace TTGUI
         ProductMenu,
         CurrentCustomer,
         CurrentProduct,
+        CurrentOrder,
         AddStoreMenu,
         AddCustomerMenu,
         AddOrderMenu,
         AddProductsMenu,
         AddLineItemsMenu,
+        AddItemsToOrder,
         ShowStores,
         ShowCustomers,
         ShowProducts,
+        ShowLineItems,
+        ShowOrders,
         LogInMenu,
         Exit
     }

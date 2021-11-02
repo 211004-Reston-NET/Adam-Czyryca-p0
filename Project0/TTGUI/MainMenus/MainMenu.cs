@@ -7,12 +7,12 @@ namespace TTGUI
     {
         public void Menu()
         {
-          
+
             Console.WriteLine(
-            "___________________________\n"+
-            "[1] - LogIn\n"+
-            "[2] - Sing up\n"+
-            "[0] - Exit\n"+
+            "___________________________\n" +
+            "[1] - LogIn\n" +
+            "[2] - Sign up\n" +
+            "[0] - Exit\n" +
             "____________________________"
             );
         }
@@ -23,12 +23,12 @@ namespace TTGUI
 
             switch (userChoice)
             {
-               
+
                 case "2":
                     return MenuType.AddCustomerMenu;
                 case "1":
                     return MenuType.LogInMenu;
-                    //return MenuType.CustomerMenu;
+                //return MenuType.CustomerMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

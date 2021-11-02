@@ -31,6 +31,23 @@ namespace TTGBL
             return ListOfProducts;
         }
 
+        // public List<Product> GetAllProducts(int p_storeId)
+        // {
+        //     List<Product> ListOfProducts = _prodRepo.GetAllProducts(p_storeId);
+        //     for (int i = 0; i < ListOfProducts.Count; i++)
+        //     {
+        //         ListOfProducts[i].Name = ListOfProducts[i].Name.ToUpper();
+        //     }
+        //     return ListOfProducts;
+        // }
+
+
+        public Product GetProductByID(int p_prodID)
+        {
+            return _prodRepo.GetProductByID(p_prodID);
+        }
+
+
         public List<Product> GetProduct(string p_prodName)
         {
 

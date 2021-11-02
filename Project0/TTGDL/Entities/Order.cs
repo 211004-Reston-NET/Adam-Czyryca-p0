@@ -7,6 +7,11 @@ namespace TTGDL.Entities
 {
     public partial class Order
     {
+        public Order()
+        {
+            ItemsInOrders = new HashSet<ItemsInOrder>();
+        }
+
         public int Id { get; set; }
         public int StoreFront { get; set; }
         public int Customer { get; set; }
@@ -14,5 +19,6 @@ namespace TTGDL.Entities
 
         public virtual Customer CustomerNavigation { get; set; }
         public virtual Store StoreFrontNavigation { get; set; }
+        public virtual ICollection<ItemsInOrder> ItemsInOrders { get; set; }
     }
 }

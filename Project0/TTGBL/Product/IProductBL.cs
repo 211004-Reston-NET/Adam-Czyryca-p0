@@ -12,6 +12,13 @@ namespace TTGBL
         List<Product> GetAllProducts();
 
         /// <summary>
+        /// gets the product with an id matching the passed int  
+        /// </summary>
+        /// <param name="p_prodID"></param>
+        /// <returns></returns>
+        Product GetProductByID(int p_prodID);
+
+        /// <summary>
         /// adds a singular product obj to the json file
         /// </summary>
         /// <param name="p_prod"></param>

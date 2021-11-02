@@ -12,6 +12,13 @@ namespace TTGBL
         List<LineItem> GetAllLineItems();
 
         /// <summary>
+        /// get all line items at designated store
+        /// </summary>
+        /// <param name="_storeId"></param>
+        /// <returns></returns>
+        List<LineItem> GetAllLineItems(int _storeId);
+
+        /// <summary>
         /// add line item 
         /// </summary>
         /// <param name="p_LineItem"></param>

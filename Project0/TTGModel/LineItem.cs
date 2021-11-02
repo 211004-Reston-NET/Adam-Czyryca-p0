@@ -12,5 +12,10 @@ namespace TTGModel
 
         public Product ProductNavigation { get; set; }
         public Store StoreNavigation { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}\nQuantity: {Quantity}\nProduct: {Product}\nStore: {Store}\n";
+        }
     }
 }

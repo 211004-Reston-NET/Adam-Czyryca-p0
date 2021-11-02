@@ -19,10 +19,25 @@ namespace TTGBL
         Customer AddCustomer(Customer p_cust);
 
         /// <summary>
-        /// will return single customer 
+        /// will return a list of matching customers
         /// </summary>
         /// <param name="p_custName"></param>
         /// <returns></returns>
-        List<Customer> GetCustomer(string p_custName); 
+        List<Customer> GetCustomer(string p_custName);
+
+        /// <summary>
+        /// will return one customer obj that contains data matching the parameters 
+        /// </summary>
+        /// <param name="_custName"></param>
+        /// <param name="_emailPhone"></param>
+        /// <returns></returns>
+        Customer GetMatchingCustomer(string _custName, string _emailPhone);
+
+        /// <summary>
+        ///  will return a single customer obj with an Id matching the passed int
+        /// </summary>
+        /// <param name="_custID"></param>
+        /// <returns></returns>
+        Customer GetMatchingCustomer(int _custID);
     }
 }

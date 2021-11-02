@@ -6,15 +6,14 @@ namespace TTGBL
 {
     public class LineItemBL : ILineItemBL
     {
-        
-        private ILineItemRepo _LineRepo;
 
-        private IProductBL _prodBL;
-        private IStoreBL _storeBL;
+        private ILineItemRepo _LineRepo;
+        
 
         public LineItemBL(ILineItemRepo p_Line)
         {
-            _LineRepo=p_Line;
+            _LineRepo = p_Line;
+            
         }
 
 
@@ -26,8 +25,20 @@ namespace TTGBL
         public List<LineItem> GetAllLineItems()
         {
             List<LineItem> ListOfLineItems = _LineRepo.GetAllLineItems();
-     
+
             return ListOfLineItems;
         }
+
+        public List<LineItem> GetAllLineItems(int p_storeId)
+        {
+            List<LineItem> ListOfLineItems = _LineRepo.GetAllLineItems(p_storeId);
+
+            return ListOfLineItems;
+        }
+
+    //     public string ToString(LineItem p_item)
+    //     {
+    //         return $"ID: {p_item.Id}\nQuantity: {p_item.Quantity}\nProduct: {_prodRepo.GetProductByID(p_item.Product).ToString()}\nStore: {p_item.Store}\n";
+    //     }
     }
 }
