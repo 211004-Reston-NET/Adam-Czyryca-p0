@@ -42,10 +42,19 @@ namespace TTGUI
 
             switch (UserChoice)
             {
-                
+
                 case "1":
-                    Console.Write("Name: ");
-                    _cust.Name = Console.ReadLine();
+                    try
+                    {
+                        Console.Write("Name: ");
+                        _cust.Name = Console.ReadLine();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.ReadLine();
+                    }
+
                     return MenuType.AddCustomerMenu;
                 case "2":
                     Console.Write("Address: ");

@@ -29,11 +29,11 @@ namespace TTGUI
             "Add Orders Menu\n" +
             $"Customer - {SingletonCustomer.Customer.Name}\n" +
             $"Store-{SingletonStore.store.Name}\n" +
-            $"total - {_Orders.Total}\n" +
-            "[1] - Enter the Name of a store\n" +
-            "[2] - Add prodducts to current order\n" +
-            "[3] - Add prodducts to existing order\n" +
-            "[4] - Submit Information\n" +
+            //$"total - {_Orders.Total}\n" +
+            "[1] - Enter the Name of a store for order pickup\n" +
+            //"[2] - Add prodducts to order\n" +
+            "[2] - view your orders\n" +
+            //"[4] - Submit Information\n" +
             "[0] - Go Back\n" +
             "______________________________\n"
             );
@@ -58,7 +58,10 @@ namespace TTGUI
                     if (result2.ToUpper() == "Y")
                     {
                         _Orders.StoreFront = FoundStore[0].Id;
-                        SingletonStore.store.Name = FoundStore[0].Name;
+                        SingletonStore.store = FoundStore[0];
+                        Console.WriteLine("Press enter to continue placing your order");
+                        string readin = Console.ReadLine();
+                        return MenuType.AddItemsToOrder;
 
                     }
                     else
@@ -67,17 +70,16 @@ namespace TTGUI
                         Console.WriteLine("press enter to continue...");
                         Console.ReadLine();
                     }
-
                     return MenuType.AddOrderMenu;
                 case "2":
                     return MenuType.AddItemsToOrder;
                 case "3":
                     return MenuType.ShowOrders;
                 case "4":
-                    _Orders.Customer= SingletonCustomer.Customer.Id;
+                    _Orders.Customer = SingletonCustomer.Customer.Id;
                     _OrderBL.AddOrders(_Orders);
                     SingletonOrder.Order = _Orders;
-                    Console.WriteLine("Orderss has been added successfully");
+                    Console.WriteLine("Orders has been added successfully");
                     Console.WriteLine("Press enter to continue..");
                     Console.ReadLine();
                     //SingletonStore.store.Name = null;

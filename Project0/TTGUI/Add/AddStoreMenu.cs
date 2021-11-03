@@ -5,7 +5,7 @@ namespace TTGUI
 {
     public class AddStoreMenu : IMenu
     {
-        
+
         private static Store _store = new Store();
         private IStoreBL _storeBL;
 
@@ -15,16 +15,18 @@ namespace TTGUI
         }
         public void Menu()
         {
-            
-            Console.WriteLine("______________________________");
-            Console.WriteLine("Adding a new Store");
-            Console.WriteLine("Name - " + _store.Name);
-            Console.WriteLine("Address - "+ _store.Address);
-            Console.WriteLine("[3] - Add store");
-            Console.WriteLine("[2] - Input value for Name");
-            Console.WriteLine("[1] - Input value for Address");
-            Console.WriteLine("[0] - Go Back");
-            Console.WriteLine("______________________________"); 
+
+            Console.WriteLine(
+            "______________________________\n" +
+            "Add a new Store\n" +
+            $"Name - {_store.Name}\n" +
+            $"Address - {_store.Address}\n" +
+            "[1] - Input value for Name\n" +
+            "[2] - Input value for Address\n" +
+            "[3] - Add store\n" +
+            "[0] - Go Back\n" +
+            "______________________________"
+            );
         }
 
         public MenuType Navigation()
@@ -33,21 +35,37 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                case "3":
-                    _storeBL.AddStore(_store);
-                    Console.WriteLine("Store has been added successfully");
-                    Console.WriteLine("Press enter to continue..");
-                    Console.ReadLine();
-                    _store.Name="";
-                    _store.Address="";
+
+                case "1":
+                    _store.Name = Console.ReadLine();
                     return MenuType.AddStoreMenu;
                 case "2":
-                    _store.Name= Console.ReadLine();
+                    _store.Address = Console.ReadLine();
                     return MenuType.AddStoreMenu;
-                case "1":
-                    _store.Address= Console.ReadLine();
+                case "3":
+                    if (String.IsNullOrEmpty(_store.Name))
+                    {
+                        Console.WriteLine("Name and Address cant be null");
+                        Console.WriteLine("Press enter to continue..");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        _storeBL.AddStore(_store);
+                        Console.WriteLine("Store has been added successfully");
+                        Console.WriteLine("Press enter to continue..");
+                        Console.ReadLine();
+                        _store.Name = "";
+                        _store.Address = "";
+                    }
+
                     return MenuType.AddStoreMenu;
-                case "0": 
+                case "4":
+                    Console.WriteLine(_store.Name);
+                    Console.WriteLine(_store.Name);
+                    Console.ReadLine();
+                    return MenuType.AddStoreMenu;
+                case "0":
                     return MenuType.StoreMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");

@@ -11,22 +11,37 @@ namespace TTGUI
 
         public CurrentCustomer(ICustomerBL p_custBL)
         {
-            _custBL=p_custBL;
+            _custBL = p_custBL;
         }
         public void Menu()
         {
             List<Customer> ListOfCustomers = _custBL.GetCustomer(ShowCustomers._findCustName);
 
-            Console.WriteLine("This is the search result");
-            foreach (Customer customer in ListOfCustomers)
+            
+            //Console.WriteLine(ListOfCustomers[0].ToString());
+            if (ListOfCustomers.Count == 0)
             {
                 Console.WriteLine(
-                    "-------------------------\n"+
-                    $"{customer}\n"+
-                    "-------------------------\n"
-                ); 
+                        "-------------------------\n" +
+                        "No result found try entering a more Specific name\n" +
+                        "[0] - Go back\n" +
+                        "-------------------------\n"
+                    );
+                
             }
-            Console.WriteLine("[0] - Go back");
+            else
+            {
+                Console.WriteLine("This is the search result");
+                foreach (Customer customer in ListOfCustomers)
+                {
+                    Console.WriteLine(
+                        "-------------------------\n" +
+                        $"{customer}\n" +
+                        "-------------------------\n"
+                    );
+                }
+                Console.WriteLine("[0] - Go back");
+            }
         }
 
         public MenuType Navigation()

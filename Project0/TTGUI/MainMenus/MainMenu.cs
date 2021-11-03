@@ -23,12 +23,10 @@ namespace TTGUI
 
             switch (userChoice)
             {
-
-                case "2":
-                    return MenuType.AddCustomerMenu;
                 case "1":
                     return MenuType.LogInMenu;
-                //return MenuType.CustomerMenu;
+                case "2":
+                    return MenuType.AddCustomerMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

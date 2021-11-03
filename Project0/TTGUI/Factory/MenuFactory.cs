@@ -80,7 +80,8 @@ namespace TTGUI
                     return new AddItemsToOrder(new ItemsInOrderBL(new ItemsInOrderCloudRepo(new database1Context(options))),
                                                new LineItemBL(new LineItemCloudRepo(new database1Context(options))),
                                                new OrderBL(new OrderCloudRepo(new database1Context(options))),
-                                               new ProductBL(new ProductCloudRepo(new database1Context(options))));
+                                               new ProductBL(new ProductCloudRepo(new database1Context(options))),
+                                               new CustomerBL(new CustomerCloudRepo(new database1Context(options))));
                 //---------------------------------------------------------------------------------------
                 default:
                     return null;

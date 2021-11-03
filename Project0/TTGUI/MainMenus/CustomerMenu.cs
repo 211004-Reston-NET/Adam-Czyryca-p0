@@ -16,7 +16,6 @@ namespace TTGUI
              "What would you like to do?\n" +
              "[1] Show all Customers\n" +
              "[2] Add new customer\n" +
-             "[3] View your orders\n" +
              "[0] Go back\n" +
              "_______________________________________________\n");
 
@@ -33,8 +32,6 @@ namespace TTGUI
                     return MenuType.ShowCustomers;
                 case "2":
                     return MenuType.AddCustomerMenu;
-                case "3":
-                    return MenuType.CustomerMenu;
                 case "0":
                     //return MenuType.MainMenu;
                     return MenuType.TestingMenu;

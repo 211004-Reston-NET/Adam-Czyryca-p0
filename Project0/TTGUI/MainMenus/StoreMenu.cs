@@ -10,10 +10,8 @@ namespace TTGUI
             "____________________________________",
             "Welcome to the store page",
             "What would you like to do?",
-            "[4] Show Store list",
-            "[3] Add a store",
-            "[1] Checkout",
-            "[2] Place an order",
+            "[1] Show Store list",
+            "[2] Add a store",
             "[0] Go back to main Menu",
             "______________________________________"
 
@@ -26,14 +24,14 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                case "4":
-                    return MenuType.ShowStores;
-                case "3":
-                    return MenuType.AddStoreMenu;
+                // case "4":
+                //     return MenuType.ShowStores;
+                // case "3":
+                //     return MenuType.AddStoreMenu;
                 case "2":
-                    return MenuType.StoreMenu;
+                    return MenuType.AddStoreMenu;
                 case "1":
-                    return MenuType.StoreMenu;
+                    return MenuType.ShowStores;
                 case "0":
                     //return MenuType.MainMenu;
                     return MenuType.TestingMenu;

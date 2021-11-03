@@ -16,8 +16,12 @@ namespace TTGUI
         }
         public void Menu()
         {
-            Console.WriteLine("Registered Orders");
-            List<Orders> ListOfOrders = _orderBL.GetAllOrders();
+            Console.WriteLine(
+                    "-------------------------\n" +
+                    $"{SingletonCustomer.Customer.Name}'s Order History\n" +
+                    "-------------------------\n"
+                    );
+            List<Orders> ListOfOrders = _orderBL.GetAllCustomerOrders(SingletonCustomer.Customer);
             foreach (Orders Order in ListOfOrders)
             {
                 if (Order.Customer == SingletonCustomer.Customer.Id)
@@ -30,7 +34,7 @@ namespace TTGUI
                 }
 
             }
-            Console.WriteLine("[1] - select Order to add items to");
+            //Console.WriteLine("[1] - select Order to add items to");
             Console.WriteLine("[0] - Go back");
         }
 
@@ -44,7 +48,7 @@ namespace TTGUI
                     int _enteredOrderID = Convert.ToInt32(Console.ReadLine());
                     SingletonOrder.Order = _orderBL.GetOrder(_enteredOrderID);
                     SingletonStore.store = _storeBL.GetStoreById(SingletonOrder.Order.StoreFront);
-                    Console.WriteLine($"current order: {SingletonOrder.Order}");
+                    Console.WriteLine($"{SingletonOrder.Order}\n has been updated to the current order");
                     Console.ReadLine();
 
                     return MenuType.ShowOrders;

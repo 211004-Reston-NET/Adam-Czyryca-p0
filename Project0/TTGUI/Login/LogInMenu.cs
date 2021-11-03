@@ -32,22 +32,42 @@ namespace TTGUI
             String UserChoice = Console.ReadLine();
             switch (UserChoice)
             {
-                case "3":
-
-                    Boolean match = _ILogBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
-                    if (match == true)
+                case "1":
+                    Console.Write("Name: ");
+                    try
                     {
-                        SingletonCustomer.Customer = _ICustBL.GetMatchingCustomer(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
-                        return MenuType.TestingMenu;
+                        SingletonCustomer.Customer.Name = Console.ReadLine();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Name can only be letters");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
                     }
                     return MenuType.LogInMenu;
                 case "2":
                     Console.Write("Email/phone: ");
                     SingletonCustomer.Customer.EmailPhone = Console.ReadLine();
                     return MenuType.LogInMenu;
-                case "1":
-                    Console.Write("Name: ");
-                    SingletonCustomer.Customer.Name = Console.ReadLine();
+                case "3":
+                    Boolean match = false;
+                    try
+                    {
+                        match = _ILogBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
+
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        Console.WriteLine("User not found");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                    }
+                    //Boolean match = _ILogBL.VerifyCustomerID(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
+                    if (match == true)
+                    {
+                        SingletonCustomer.Customer = _ICustBL.GetMatchingCustomer(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
+                        return MenuType.TestingMenu;
+                    }
                     return MenuType.LogInMenu;
                 case "0":
                     return MenuType.MainMenu;
