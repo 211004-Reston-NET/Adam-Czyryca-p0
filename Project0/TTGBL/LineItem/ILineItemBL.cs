@@ -26,5 +26,15 @@ namespace TTGBL
         /// <param name="StoreName"></param>
         /// <returns></returns>
         LineItem AddLineItem(LineItem p_LineItem);
+
+        /// <summary>
+        /// updates the quantity of the lineItem with the passed id
+        /// </summary>
+        /// <param name="_itemID"></param>
+        /// <param name="_newQuantity"></param>
+        /// <returns></returns>
+        void UpdateQuantity(int _itemID, int _newQuantity);
+
+        
     }
 }

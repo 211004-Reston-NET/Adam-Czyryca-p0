@@ -24,5 +24,9 @@ namespace TTGDL
         /// <param name="p_orderId"></param>
         /// <returns></returns>
         Orders GetOrder(int p_orderId);
+
+        int GetOrderId(Orders p_order);
+
+        List<Orders> GetAllCustomerOrders(Customer _cust);
     }
 }

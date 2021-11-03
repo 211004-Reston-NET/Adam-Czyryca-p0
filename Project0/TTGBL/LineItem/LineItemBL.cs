@@ -36,9 +36,10 @@ namespace TTGBL
             return ListOfLineItems;
         }
 
-    //     public string ToString(LineItem p_item)
-    //     {
-    //         return $"ID: {p_item.Id}\nQuantity: {p_item.Quantity}\nProduct: {_prodRepo.GetProductByID(p_item.Product).ToString()}\nStore: {p_item.Store}\n";
-    //     }
+        public void UpdateQuantity(int p_itemID, int p_newQuantity)
+        {
+            _LineRepo.UpdateQuantity(p_itemID, p_newQuantity);
+        }
+
     }
 }

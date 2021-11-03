@@ -21,10 +21,18 @@ namespace TTGDL
         /// <summary>
         /// adds line item with refence to the product and string 
         /// </summary>
-        /// <param name="p_LineItem"></param>
+        /// <param name="_LineItem"></param>
         /// <param name="ProdName"></param>
         /// <param name="StoreName"></param>
         /// <returns></returns>
-        LineItem AddLineItem(LineItem p_LineItem);
+        LineItem AddLineItem(LineItem _LineItem);
+
+        /// <summary>
+        /// updates the quantity of the lineItem with the passed id
+        /// </summary>
+        /// <param name="_itemID"></param>
+        /// <param name="_newQuantity"></param>
+        /// <returns></returns>
+        void UpdateQuantity(int _itemID, int _newQuantity);
     }
 }

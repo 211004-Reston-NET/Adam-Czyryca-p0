@@ -78,5 +78,13 @@ namespace TTGDL
                 Store = result.Store
             };
         }
+
+        public void UpdateQuantity(int p_itemID, int p_newQuantity)
+        {
+            var query = _context.LineItems
+                .FirstOrDefault<Entity.LineItem>(item => item.Id == p_itemID);
+            query.Quantity = p_newQuantity;
+            _context.SaveChanges();
+        }
     }
 }

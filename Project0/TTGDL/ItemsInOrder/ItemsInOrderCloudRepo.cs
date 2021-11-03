@@ -23,7 +23,8 @@ namespace TTGDL
                  new Entity.ItemsInOrder()
                  {
                      OrderId = p_items.OrderId,
-                     LineItemId = p_items.LineItemId
+                     LineItemId = p_items.LineItemId,
+                     Quantity = p_items.Quantity
                  }
              );
             _context.SaveChanges();

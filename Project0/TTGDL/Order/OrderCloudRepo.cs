@@ -43,6 +43,23 @@ namespace TTGDL
             ).ToList();
         }
 
+        public List<Model.Orders> GetAllCustomerOrders(Customer p_cust)
+        {
+            //method syntax
+            return _context.Orders
+            .Where(ord=> ord.Customer == p_cust.Id)
+            .Select(order =>
+                new Model.Orders()
+                {
+                    Id = order.Id,
+                    StoreFront = order.StoreFront,
+                    Customer = order.Customer,
+                    Total = order.Total
+                }
+
+            ).ToList();
+        }
+
         public Orders GetOrder(int p_orderId)
         {
             var result = _context.Orders
@@ -55,6 +72,12 @@ namespace TTGDL
                 Customer = result.Customer,
                 Total = result.Total
             };
+        }
+
+        public int GetOrderId (Orders p_order)
+        {
+            Orders order =GetOrder(p_order.Id);
+            return order.Id;
         }
     }
 }

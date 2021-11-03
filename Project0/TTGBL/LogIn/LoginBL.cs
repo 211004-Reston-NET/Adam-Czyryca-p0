@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TTGDL;
-using Model=TTGModel;
+using Model = TTGModel;
 
 namespace TTGBL
 {
@@ -23,7 +23,7 @@ namespace TTGBL
                 .Where(cust => cust.Name.ToLower().Contains(p_custName.ToLower())).ToList())
                 .Where(cust => cust.EmailPhone.Contains(p_custEmailPhone)).ToList();
 
-            if (match[0].Name == p_custName && match[0].EmailPhone == p_custEmailPhone)
+            if ((match[0].Name).ToLower() == (p_custName).ToLower() && match[0].EmailPhone == p_custEmailPhone)
             {
                 return true;
             }

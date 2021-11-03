@@ -30,5 +30,15 @@ namespace TTGBL
         {
             return _orderRepo.GetOrder(p_orderId);
         }
+
+        public int GetOrderId(Model.Orders p_order)
+        {
+            return _orderRepo.GetOrderId(p_order);
+        }
+
+        public List<Model.Orders> GetAllCustomerOrders(Model.Customer p_cust)
+        {
+            return _orderRepo.GetAllCustomerOrders(p_cust);
+        }
     }
 }
