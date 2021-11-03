@@ -78,7 +78,7 @@ namespace TTGUI
                     if (match == true)
                     {
                         SingletonCustomer.Customer = _ICustBL.GetMatchingCustomer(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
-                        SingletonUser.User=0;
+                        SingletonUser.User=1;
                         return MenuType.MainCustomerMenu;
                     }
                     return MenuType.LogInMenu;

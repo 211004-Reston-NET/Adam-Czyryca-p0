@@ -81,11 +81,11 @@ namespace TTGUI
                     Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "0":
-                    if(SingletonUser.User == 0)
+                    if(SingletonUser.User == 1)
                     {
                         return MenuType.CustomerMenu;
                     }
-                    else if(SingletonUser.User == 1) 
+                    else if(SingletonUser.User == 2) 
                     {
                         return MenuType.TestingMenu;
                     }

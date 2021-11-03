@@ -50,7 +50,8 @@ namespace TTGUI
                     _findlineItemName = Convert.ToInt32(Console.ReadLine());
                     return MenuType.CurrentLineItem;
                 case "0":
-                    return MenuType.LineItemMenu;
+                    return MenuType.StoreMenu;
+                    //return MenuType.LineItemMenu;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");

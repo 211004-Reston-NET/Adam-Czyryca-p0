@@ -78,7 +78,7 @@ namespace TTGUI
 
                     return MenuType.ShowOrders;
                 case "0":
-                    if(SingletonUser.User==0)
+                    if(SingletonUser.User==1)
                     {
                         return MenuType.OrdersMenu;
                     }

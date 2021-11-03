@@ -45,7 +45,7 @@ namespace TTGUI
                     SingletonStore.store.Name = Console.ReadLine();
                     return MenuType.CurrentStore;
                 case "0":
-                    if(SingletonUser.User==0)
+                    if(SingletonUser.User==1)
                     {
                         return MenuType.MainCustomerMenu;
                     }

@@ -9,7 +9,7 @@ namespace TTGUI
             "------------------------------\n" +
             $"Current User: {SingletonCustomer.Customer.Name}\n" +
             "------------------------------\n" +
-            "____________________________________",
+            "____________________________________\n" +
             "Welcome to the Order page\n" +
             "What would you like to do?\n" +
             "[1] Place order\n" +
@@ -36,14 +36,15 @@ namespace TTGUI
                 case "4":
                     return MenuType.OrdersMenu;
                 case "0":
-                    if (SingletonUser.User == 0)
+                    if (SingletonUser.User == 1)
                     {
-                        return MenuType.CustomerMenu;
+                        return MenuType.MainCustomerMenu;
                     }
-                    else
+                    else if (SingletonUser.User == 2)
                     {
                         return MenuType.TestingMenu;
                     }
+                    return MenuType.MainCustomerMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.OrdersMenu;
