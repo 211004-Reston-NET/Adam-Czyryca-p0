@@ -15,6 +15,11 @@ namespace TTGUI
 
         public void Menu()
         {
+            Console.WriteLine(
+            "------------------------------\n" +
+            $"Current User: {SingletonCustomer.Customer.Name}\n" +
+            "------------------------------\n"
+            );
             Console.WriteLine("Stores in Database");
             List<Store> ListOfStores = _storeBL.GetAllStores();
 
@@ -24,6 +29,7 @@ namespace TTGUI
                 Console.WriteLine(store);
                 Console.WriteLine("------------------------");
             }
+            Console.WriteLine("[1] - search for store");
             Console.WriteLine("[0] - Go back");
             
         }
@@ -33,8 +39,17 @@ namespace TTGUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                case "1":
+                    Console.WriteLine("Enter a name for the store you want to find");
+                    Console.Write("Store: ");
+                    SingletonStore.store.Name = Console.ReadLine();
+                    return MenuType.CurrentStore;
                 case "0":
-                    return MenuType.StoreMenu;
+                    if(SingletonUser.User==0)
+                    {
+                        return MenuType.MainCustomerMenu;
+                    }
+                    return MenuType.TestingMenu;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");

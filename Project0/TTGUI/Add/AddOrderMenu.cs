@@ -53,23 +53,37 @@ namespace TTGUI
                     SingletonStore.store.Name = Console.ReadLine();
                     List<Store> FoundStore = new List<Store>();
                     FoundStore = _storeBL.GetStore(SingletonStore.store.Name);
-                    Console.WriteLine($"Is this correct [Y] [N]: {FoundStore[0].Name}");
-                    String result2 = Console.ReadLine();
-                    if (result2.ToUpper() == "Y")
+                    try 
                     {
-                        _Orders.StoreFront = FoundStore[0].Id;
-                        SingletonStore.store = FoundStore[0];
-                        Console.WriteLine("Press enter to continue placing your order");
-                        string readin = Console.ReadLine();
-                        return MenuType.AddItemsToOrder;
-
+                        String test =FoundStore[0].Name;
+                        
                     }
-                    else
+                    catch(System.ArgumentOutOfRangeException)
                     {
                         Console.WriteLine("Enter a More specific name or check that the store exists");
                         Console.WriteLine("press enter to continue...");
                         Console.ReadLine();
+                        return MenuType.AddOrderMenu;
                     }
+                   
+                        Console.WriteLine($"Is this correct [Y] [N]: {FoundStore[0].Name}");
+                        String result2 = Console.ReadLine();
+                        if (result2.ToUpper() == "Y")
+                        {
+                            _Orders.StoreFront = FoundStore[0].Id;
+                            SingletonStore.store = FoundStore[0];
+                            Console.WriteLine("Press enter to continue placing your order");
+                            string readin = Console.ReadLine();
+                            return MenuType.AddItemsToOrder;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Enter a More specific name or check that the store exists");
+                            Console.WriteLine("press enter to continue...");
+                            Console.ReadLine();
+                        }
+                    
                     return MenuType.AddOrderMenu;
                 case "2":
                     return MenuType.AddItemsToOrder;
@@ -90,7 +104,9 @@ namespace TTGUI
                     return MenuType.OrdersMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");
-                    return MenuType.CustomerMenu;
+                    Console.WriteLine("press enter to continue...");
+                    Console.ReadLine();
+                    return MenuType.AddOrderMenu;
             }
         }
     }

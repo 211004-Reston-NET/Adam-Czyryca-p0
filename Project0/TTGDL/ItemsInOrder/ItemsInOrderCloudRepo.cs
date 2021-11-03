@@ -45,6 +45,22 @@ namespace TTGDL
             ).ToList();
         }
 
+        public List<Model.ItemsInOrder> GetAllItemsInOrder(Orders p_order)
+        {
+            //method syntax
+            return _context.ItemsInOrders
+            .Where(item => item.OrderId == p_order.Id)
+            .Select(ItemsInOrder =>
+                new Model.ItemsInOrder()
+                {
+                    OrderId = ItemsInOrder.OrderId,
+                    LineItemId = ItemsInOrder.LineItemId,
+                    Quantity = ItemsInOrder.Quantity
+                }
+
+            ).ToList();
+        }
+
 
         // public List<Model.LineItem> GetLineItemsList(int p_storeId)
         // {

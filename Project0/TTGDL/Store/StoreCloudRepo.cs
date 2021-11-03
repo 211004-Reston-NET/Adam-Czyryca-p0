@@ -44,7 +44,7 @@ namespace TTGDL
             ).ToList();
         }
 
-        public Store GetStoreById(int p_storeId)
+        public Model.Store GetStoreById(int p_storeId)
         {
             var result = _context.Stores
                  .FirstOrDefault<Entity.Store>(store =>

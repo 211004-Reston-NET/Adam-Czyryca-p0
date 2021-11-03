@@ -30,6 +30,9 @@ namespace TTGUI
                 case MenuType.LogInMenu:
                     return new LogInMenu(new LogInBL(new CustomerCloudRepo(new database1Context(options))),
                                          new CustomerBL(new CustomerCloudRepo(new database1Context(options))));
+                case MenuType.ManagerLogInMenu:
+                    return new ManagerLogInMenu(new LogInBL(new CustomerCloudRepo(new database1Context(options))),
+                                         new CustomerBL(new CustomerCloudRepo(new database1Context(options))));
                 //-----------------------------customer----------------------------------------------
                 case MenuType.CurrentCustomer:
                     return new CurrentCustomer(new CustomerBL(new CustomerCloudRepo(new database1Context(options))));
@@ -39,6 +42,8 @@ namespace TTGUI
                     return new AddCustomerMenu(new CustomerBL(new CustomerCloudRepo(new database1Context(options))));
                 case MenuType.CustomerMenu:
                     return new CustomerMenu();
+                case MenuType.MainCustomerMenu:
+                    return new MainCustomerMenu();
                 //------------------------------Store---------------------------------------------------
                 case MenuType.ShowStores:
                     return new ShowStores(new StoreBL(new StoreCloudRepo(new database1Context(options))));
@@ -46,6 +51,13 @@ namespace TTGUI
                     return new AddStoreMenu(new StoreBL(new StoreCloudRepo(new database1Context(options))));
                 case MenuType.StoreMenu:
                     return new StoreMenu();
+                case MenuType.CurrentStore:
+                    return new CurrentStore(new StoreBL(new StoreCloudRepo(new database1Context(options))));
+                case MenuType.ShowStoreInventory:
+                    return new ShowStoreInventory(new LineItemBL(new LineItemCloudRepo(new database1Context(options))),
+                                                new ProductBL(new ProductCloudRepo(new database1Context(options))),
+                                                new StoreBL(new StoreCloudRepo(new database1Context(options))));
+
                 //----------------------------products-------------------------------------
                 case MenuType.ShowProducts:
                     return new ShowProducts(new ProductBL(new ProductCloudRepo(new database1Context(options))));
@@ -61,13 +73,22 @@ namespace TTGUI
                                                 new ProductBL(new ProductCloudRepo(new database1Context(options))),
                                                 new StoreBL(new StoreCloudRepo(new database1Context(options))));
                 case MenuType.ShowLineItems:
-                    return new ShowLineItems(new LineItemBL(new LineItemCloudRepo(new database1Context(options))));
+                    return new ShowLineItems(new LineItemBL(new LineItemCloudRepo(new database1Context(options))),
+                                             new ProductBL(new ProductCloudRepo(new database1Context(options))),
+                                             new StoreBL(new StoreCloudRepo(new database1Context(options))));
                 case MenuType.LineItemMenu:
                     return new LineItemMenu();
+                case MenuType.CurrentLineItem:
+                    return new CurrentLineItem(new LineItemBL(new LineItemCloudRepo(new database1Context(options))),
+                                               new ProductBL(new ProductCloudRepo(new database1Context(options))),
+                                               new StoreBL(new StoreCloudRepo(new database1Context(options))));
                 //-----------------------------Order-----------------------------------------------
                 case MenuType.ShowOrders:
                     return new ShowOrders(new OrderBL(new OrderCloudRepo(new database1Context(options))),
-                                          new StoreBL(new StoreCloudRepo(new database1Context(options))));
+                                          new StoreBL(new StoreCloudRepo(new database1Context(options))),
+                                          new ItemsInOrderBL(new ItemsInOrderCloudRepo(new database1Context(options))),
+                                          new LineItemBL(new LineItemCloudRepo(new database1Context(options))),
+                                          new ProductBL(new ProductCloudRepo(new database1Context(options))));
                 case MenuType.AddOrderMenu:
                     return new AddOrderMenu(new OrderBL(new OrderCloudRepo(new database1Context(options))),
                                             new CustomerBL(new CustomerCloudRepo(new database1Context(options))),

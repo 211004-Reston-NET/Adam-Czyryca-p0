@@ -37,10 +37,13 @@ namespace TTGUI
             {
                 case "1":
                     Console.WriteLine("Enter a name for the product you want to find");
+                    Console.Write("Product: ");
                     SingletonProduct.product.Name = Console.ReadLine();
                     return MenuType.CurrentProduct;
                 case "0":
-                    return MenuType.ProductMenu;
+                    if(SingletonUser.User==0)
+                    {return MenuType.MainCustomerMenu;}
+                    return MenuType.TestingMenu;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");

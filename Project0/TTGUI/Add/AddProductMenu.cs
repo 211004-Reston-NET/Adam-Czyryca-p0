@@ -27,7 +27,7 @@ namespace TTGUI
             "[3] - Enter the products Description\n" +
             "[4] - Enter the products Category\n" +
             "[5] - Submit Information\n" +
-            "[0] - Go Back to Customer Menu\n" +
+            "[0] - Go Back\n" +
             "______________________________\n"
             );
         }

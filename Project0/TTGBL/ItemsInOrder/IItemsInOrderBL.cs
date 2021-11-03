@@ -16,7 +16,9 @@ namespace TTGBL
         /// </summary>
         /// <param name="p_cust"></param>
         /// <returns></returns>
-        ItemsInOrder AddItemsInOrder(ItemsInOrder p_item);
+        ItemsInOrder AddItemsInOrder(ItemsInOrder _item);
+
+        List<ItemsInOrder> GetAllItemsInOrder(Orders _order);
 
     }
 }

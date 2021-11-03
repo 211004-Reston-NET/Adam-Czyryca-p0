@@ -5,16 +5,19 @@ namespace TTGUI
     {
         public void Menu()
         {
-            Console.WriteLine(String.Join(Environment.NewLine,
+            Console.WriteLine(
+            "------------------------------\n" +
+            $"Current User: {SingletonCustomer.Customer.Name}\n" +
+            "------------------------------\n" +
             "____________________________________",
-            "Welcome to the Order page",
-            "What would you like to do?",
-            "[1] Place order",
-            "[2] View current orders",
-            "[0] Go back to logIn",
+            "Welcome to the Order page\n" +
+            "What would you like to do?\n" +
+            "[1] Place order\n" +
+            "[2] View current orders\n" +
+            "[0] Go back\n" +
             "______________________________________"
 
-            )); 
+            ); 
         }
 
         public MenuType Navigation()
@@ -33,7 +36,7 @@ namespace TTGUI
                 case "4":
                     return MenuType.OrdersMenu;
                 case "0":
-                    return MenuType.MainMenu;
+                    return MenuType.MainCustomerMenu;
                 default:
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.OrdersMenu;

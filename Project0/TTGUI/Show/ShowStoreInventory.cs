@@ -5,13 +5,13 @@ using TTGModel;
 
 namespace TTGUI
 {
-    public class ShowLineItems : IMenu
+    public class ShowStoreInventory : IMenu
     {
         private ILineItemBL _lineItemBL;
         private IProductBL _prodBL;
         private IStoreBL _storeBL;
         public static int _findlineItemName;
-        public ShowLineItems(ILineItemBL p_lineItemBL,IProductBL p_prodBL, IStoreBL p_storeBL)
+        public ShowStoreInventory(ILineItemBL p_lineItemBL, IProductBL p_prodBL, IStoreBL p_storeBL)
         {
             _lineItemBL = p_lineItemBL;
             _prodBL = p_prodBL;
@@ -19,16 +19,18 @@ namespace TTGUI
         }
         public void Menu()
         {
-            Console.WriteLine("Registered LineItem");
-            List<LineItem> ListOfLineItem = _lineItemBL.GetAllLineItems();
-            foreach (LineItem LineItem in ListOfLineItem)
+            
+
+            Console.WriteLine("Store Inventory");
+            List<LineItem> ListOfLineItems = _lineItemBL.GetAllLineItems(StoreMenu.storeId);
+            foreach (LineItem LineItem in ListOfLineItems)
             {
                 Product prodPrint = _prodBL.GetProductByID(LineItem.Product);
                 Store storePrint = _storeBL.GetStoreById(LineItem.Store);
                 Console.WriteLine(
                     "-------------------------\n" +
                     $"LineItem_ID: {LineItem.Id}\n" +
-                    $"Store: {storePrint.Name}\n" +
+                    //$"Store: {storePrint.Name}\n" +
                     $"Amount in stock: {LineItem.Quantity}\n" +
                     $"{prodPrint.ToString()}\n" +
                     "-------------------------\n"

@@ -3,6 +3,8 @@ namespace TTGUI
     public enum MenuType
     {
         MainMenu,
+        MainCustomerMenu,
+        ManagerLogInMenu,
         TestingMenu,
         StoreMenu,
         CustomerMenu,
@@ -12,6 +14,8 @@ namespace TTGUI
         CurrentCustomer,
         CurrentProduct,
         CurrentOrder,
+        CurrentStore,
+        CurrentLineItem,
         AddStoreMenu,
         AddCustomerMenu,
         AddOrderMenu,
@@ -22,6 +26,7 @@ namespace TTGUI
         ShowCustomers,
         ShowProducts,
         ShowLineItems,
+        ShowStoreInventory,
         ShowOrders,
         LogInMenu,
         Exit

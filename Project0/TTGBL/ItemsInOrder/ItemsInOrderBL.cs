@@ -22,6 +22,11 @@ namespace TTGBL
             return _itemRepo.AddItemInOrder(p_item);
         }
 
+        public List<ItemsInOrder> GetAllItemsInOrder(Orders p_order)
+        {
+            return _itemRepo.GetAllItemsInOrder(p_order);
+        }
+
         public List<ItemsInOrder> GetAllItemsInOrders()
         {
             List<ItemsInOrder> listOfItemsInOrders = _itemRepo.GetAllItemsInOrder();

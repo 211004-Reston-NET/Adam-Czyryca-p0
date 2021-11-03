@@ -3,17 +3,22 @@ using System;
 namespace TTGUI
 {
 
-    public class MainMenu : IMenu
+    public class MainCustomerMenu : IMenu
     {
         public void Menu()
         {
 
             Console.WriteLine(
+            "------------------------------\n" +
+            $"Current User: {SingletonCustomer.Customer.Name}\n" +
+            "------------------------------\n" +
             "___________________________\n" +
-            "[1] - Customer LogIn\n" +
-            "[2] - Manager LogIn\n" +
-            "[3] - Sign up\n" +
-            "[0] - Exit\n" +
+            "Welcome to the customer main menu\n" +
+            "[1] - orders\n" +
+            "[2] - View store locations\n" +
+            "[3] - view products\n" +
+            "[4] - Back to LogIn\n" +
+            "[0] - Exit application\n" +
             "____________________________"
             );
         }
@@ -25,11 +30,13 @@ namespace TTGUI
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.LogInMenu;
+                    return MenuType.OrdersMenu;
                 case "2":
-                    return MenuType.ManagerLogInMenu;
+                    return MenuType.ShowStores;
                 case "3":
-                    return MenuType.AddCustomerMenu;
+                    return MenuType.ShowProducts;
+                case "4":
+                    return MenuType.MainMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

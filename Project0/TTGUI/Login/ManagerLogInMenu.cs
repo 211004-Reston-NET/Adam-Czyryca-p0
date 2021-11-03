@@ -5,11 +5,11 @@ using TTGModel;
 
 namespace TTGUI
 {
-    public class LogInMenu : IMenu
+    public class ManagerLogInMenu : IMenu
     {
         private ICustomerBL _ICustBL;
         private ILogInBL _ILogBL;
-        public LogInMenu(ILogInBL p_LogBL, ICustomerBL p_ICustBL)
+        public ManagerLogInMenu(ILogInBL p_LogBL, ICustomerBL p_ICustBL)
         {
             _ILogBL = p_LogBL;
             _ICustBL = p_ICustBL;
@@ -18,7 +18,7 @@ namespace TTGUI
         {
             Console.WriteLine(
             "___________________________\n" +
-            "Welcome to the LogIn Menu\n" +
+            "Welcome to the manager LogIn Menu\n" +
             $"[1] - Name: {SingletonCustomer.Customer.Name}\n" +
             $"[2] - Email/Phone: {SingletonCustomer.Customer.EmailPhone} \n" +
             "[3] - LogIn\n" +
@@ -44,11 +44,11 @@ namespace TTGUI
                         Console.WriteLine("Press Enter to continue...");
                         Console.ReadLine();
                     }
-                    return MenuType.LogInMenu;
+                    return MenuType.ManagerLogInMenu;
                 case "2":
                     Console.Write("Email/phone: ");
                     SingletonCustomer.Customer.EmailPhone = Console.ReadLine();
-                    return MenuType.LogInMenu;
+                    return MenuType.ManagerLogInMenu;
                 case "3":
                     Boolean match = false;
                     try
@@ -78,8 +78,8 @@ namespace TTGUI
                     if (match == true)
                     {
                         SingletonCustomer.Customer = _ICustBL.GetMatchingCustomer(SingletonCustomer.Customer.Name, SingletonCustomer.Customer.EmailPhone);
-                        SingletonUser.User=0;
-                        return MenuType.MainCustomerMenu;
+                        SingletonUser.User = 1;
+                        return MenuType.TestingMenu;
                     }
                     return MenuType.LogInMenu;
                 case "0":

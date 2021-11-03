@@ -24,7 +24,7 @@ namespace TTGModel
 
         public override string ToString()
         {
-            return $"Name: {Name}\nAddress: {Address}";
+            return $"ID: {Id}\nName: {Name}\nAddress: {Address}";
         }
     }
 }

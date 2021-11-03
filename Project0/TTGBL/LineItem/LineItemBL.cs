@@ -36,6 +36,11 @@ namespace TTGBL
             return ListOfLineItems;
         }
 
+        public LineItem GetMatchingLineItem(int p_itemID)
+        {
+            return _LineRepo.GetMatchingLineItem(p_itemID);
+        }
+
         public void UpdateQuantity(int p_itemID, int p_newQuantity)
         {
             _LineRepo.UpdateQuantity(p_itemID, p_newQuantity);

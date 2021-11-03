@@ -9,10 +9,16 @@ namespace TTGUI
     {
         private IOrderBL _orderBL;
         private IStoreBL _storeBL;
-        public ShowOrders(IOrderBL p_orderBL, IStoreBL p_storeBL)
+        private IItemsInOrderBL _itemInOrderBL;
+        private ILineItemBL _lineItemBL;
+        private IProductBL _prodBL;
+        public ShowOrders(IOrderBL p_orderBL, IStoreBL p_storeBL, IItemsInOrderBL p_itemInOrderBL, ILineItemBL p_lineItemBL, IProductBL p_prodBL)
         {
             _orderBL = p_orderBL;
             _storeBL = p_storeBL;
+            _itemInOrderBL = p_itemInOrderBL;
+            _lineItemBL = p_lineItemBL;
+            _prodBL = p_prodBL;
         }
         public void Menu()
         {
@@ -21,14 +27,33 @@ namespace TTGUI
                     $"{SingletonCustomer.Customer.Name}'s Order History\n" +
                     "-------------------------\n"
                     );
+            //for each order belonging to the passed customer
             List<Orders> ListOfOrders = _orderBL.GetAllCustomerOrders(SingletonCustomer.Customer);
             foreach (Orders Order in ListOfOrders)
-            {
+            {  
+                //this should always be true due to how the list was generated
                 if (Order.Customer == SingletonCustomer.Customer.Id)
                 {
                     Console.WriteLine(
                     "-------------------------\n" +
-                    $"{Order}\n" +
+                    $"OrderID: {Order.Id}\n"+
+                    $"store: {(_storeBL.GetStoreById(Order.StoreFront).Name)}\n"
+                    );
+                    //get all ItemsInOrder obj containing the id of the current order 
+                    List<ItemsInOrder> ListOfItemsInOrder = _itemInOrderBL.GetAllItemsInOrder(Order);
+                    
+                    foreach(ItemsInOrder orderItem in ListOfItemsInOrder )
+                    {
+                        //get the product from lineItem from orderItem
+                        LineItem LineItemToPrint = _lineItemBL.GetMatchingLineItem(orderItem.LineItemId);
+                        Product ProdToPrint = _prodBL.GetProductByID(LineItemToPrint.Product);
+                        Console.WriteLine(
+                        $"{orderItem.Quantity} {ProdToPrint.Name} price:{orderItem.Quantity*ProdToPrint.Price}\n" 
+                        );
+                    }
+                    //order total
+                    Console.WriteLine(
+                    $"total: {Order.Total}\n"+
                     "-------------------------\n"
                     );
                 }
@@ -53,7 +78,11 @@ namespace TTGUI
 
                     return MenuType.ShowOrders;
                 case "0":
-                    return MenuType.OrdersMenu;
+                    if(SingletonUser.User==0)
+                    {
+                        return MenuType.OrdersMenu;
+                    }
+                    return MenuType.TestingMenu;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");

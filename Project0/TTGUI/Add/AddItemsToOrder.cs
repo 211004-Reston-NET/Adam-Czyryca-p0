@@ -8,7 +8,7 @@ namespace TTGUI
     public class AddItemsToOrder : IMenu
 
     {
-        private static ItemsInOrder ItemAdd = new ItemsInOrder();
+        
         private static List<ItemsInOrder> ListOfItemsInOrder = new List<ItemsInOrder>();
         private static List<Orders> ListOfOrders = new List<Orders>();
         private IItemsInOrderBL _ItemsInOrderBL;
@@ -74,12 +74,21 @@ namespace TTGUI
                     List<LineItem> ListOfLineItems = new List<LineItem>();
                     List<Product> ListOfProducts = new List<Product>();
                     //get all products that are a posible match to the entered string
-                    ListOfProducts = _prodBL.GetProduct(SingletonProduct.product.Name);
+                    List<Product> TempListOfProducts = _prodBL.GetProduct(SingletonProduct.product.Name);
+                    ListOfLineItems = _lineItemBL.GetAllLineItems(SingletonStore.store.Id);
+                    //aditonal checking to ensure the products retreved the store has an assosiated lineitem
+                    foreach (Product prod in TempListOfProducts)
+                    {
+                        foreach (LineItem item in ListOfLineItems)
+                        {
+                           if(prod.Id == item.Product) 
+                           {
+                               ListOfProducts.Add(prod);
+                           }
+                        }
+                    }
 
-                    //ListOfOrders = _orderBL.GetAllOrders();
-                    ListOfLineItems = _lineItemBL.GetAllLineItems();
-                    //int cust_ID = SingletonCustomer.Customer.Id;
-                    //int lineItem_Id;
+                    //ListOfLineItems = _lineItemBL.GetAllLineItems();
                     int prod_id;
                     //return the name of the first product found from GetProduct
                     //and ask the user if that is the product they wanted
@@ -97,57 +106,68 @@ namespace TTGUI
                             {
                                 //how many of selected product to add to the order
                                 Console.WriteLine("How Many?");
-                                Boolean loop = true;
+                                //Boolean loop = true;
                                 int amount;
                                 //loop will compile the list of lineItems to add to the order 
                                 // and check the stock to ensure the placed order is valid
-                                while (loop == true)
+
+                                Console.Write("Amount: ");
+                                try
                                 {
-                                    Console.Write("Amount: ");
-                                    try
-                                    {
-                                        amount = Convert.ToInt32(Console.ReadLine());
-                                    }
-                                    catch (Exception)
-                                    {
-                                        Console.WriteLine("Amount must be an integer!");
-                                        Console.WriteLine("Press enter to continue...");
-                                        Console.ReadLine();
-                                        break;
-                                    }
-
-
-                                    //desired quantity is avalible
-                                    if (amount <= item.Quantity)
-                                    {
-                                        //update the ItemInOrder obj ItemAdd with the Lineitem id and the quantity
-                                        ItemAdd.LineItemId = item.Id;
-                                        ItemAdd.Quantity = amount;
-                                        //compile a list of lineitems to add to the order 
-                                        ListOfItemsInOrder.Add(ItemAdd);
-                                        //ItemAdd.OrderId = SingletonOrder.Order.Id;
-                                        SingletonOrder.Order.Total += (ListOfProducts[0].Price * amount);
-                                        //_ItemsInOrderBL.AddItemsInOrder(ItemAdd);
-                                        //take the entered amount and subtract it from the current quanity then update 
-                                        int setQuantity = item.Quantity - amount;
-                                        _lineItemBL.UpdateQuantity(item.Id, setQuantity);
-
-                                        loop = false;
-                                        Console.WriteLine("item added to order");
-                                    }
-                                    //add zero of the product to the order
-                                    else if (amount == 0)
-                                    {
-                                        Console.WriteLine("item not added");
-                                        loop = false;
-                                    }
-                                    //desired quantity is not avalible
-                                    else
-                                    {
-                                        Console.WriteLine("Not enough in stock!\n  Choose fewer to add to your order\n  Chose zero not to add to order");
-
-                                    }
+                                    amount = Convert.ToInt32(Console.ReadLine());
                                 }
+                                catch (Exception)
+                                {
+                                    Console.WriteLine("Amount must be an integer!");
+                                    Console.WriteLine("Press enter to continue...");
+                                    Console.ReadLine();
+                                    break;
+                                }
+
+
+                                //desired quantity is avalible
+                                if (amount <= item.Quantity)
+                                {
+                                    ItemsInOrder ItemAdd = new ItemsInOrder();
+                                    //update the ItemInOrder obj ItemAdd with the Lineitem id and the quantity
+                                    ItemAdd.LineItemId = item.Id;
+                                    ItemAdd.Quantity = amount;
+                                    // Console.WriteLine(ItemAdd.LineItemId);
+                                    // Console.WriteLine(ItemAdd.Quantity);
+                                    // Console.ReadLine();
+                                    //compile a list of lineitems to add to the order 
+                                    ListOfItemsInOrder.Add(ItemAdd);
+                                    //ItemAdd.OrderId = SingletonOrder.Order.Id;
+                                    SingletonOrder.Order.Total += (ListOfProducts[0].Price * amount);
+                                    //_ItemsInOrderBL.AddItemsInOrder(ItemAdd);
+                                    //take the entered amount and subtract it from the current quanity then update 
+                                    int setQuantity = item.Quantity - amount;
+
+                                    //_lineItemBL.UpdateQuantity(item.Id, setQuantity);
+                                    foreach (ItemsInOrder ItemPrint in ListOfItemsInOrder)
+                                    {
+                                        Console.WriteLine(ItemPrint.ToString());
+                                    }
+                                    //  loop = false;
+                                    Console.WriteLine("item added to order");
+                                    Console.WriteLine("Press enter to continue...");
+                                    Console.ReadLine();
+                                }
+                                //add zero of the product to the order
+                                else if (amount == 0)
+                                {
+                                    Console.WriteLine("item not added");
+                                    Console.WriteLine("Press enter to continue...");
+                                    Console.ReadLine();
+                                }
+                                //desired quantity is not avalible
+                                else
+                                {
+                                    Console.WriteLine("Not enough in stock!\n  Choose fewer to add to your order\n  Chose zero not to add to order");
+                                    Console.WriteLine("Press enter to continue...");
+                                    Console.ReadLine();
+                                }
+
                             }
                         }
                     }
@@ -178,8 +198,9 @@ namespace TTGUI
                         SingletonOrder.Order.Customer = SingletonCustomer.Customer.Id;
                         SingletonOrder.Order.StoreFront = SingletonStore.store.Id;
                         _orderBL.AddOrders(SingletonOrder.Order);
-                        ListOfOrders = _orderBL.GetAllCustomerOrders(SingletonCustomer.Customer);
 
+                        //get the order id of the order created on the previous line
+                        ListOfOrders = _orderBL.GetAllCustomerOrders(SingletonCustomer.Customer);
                         for (int i = 0; i < ListOfOrders.Count; i++)
                         {
                             //if i is at the last element(most recently added) of the list

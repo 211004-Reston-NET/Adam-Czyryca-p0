@@ -14,11 +14,11 @@ namespace TTGUI
             "------------------------------\n" +
             $"Current User: {SingletonCustomer.Customer.Name}\n" +
             "------------------------------\n" +
-            $"Current User: {SingletonCustomer.Customer.Id}\n" +
-            "------------------------------\n" +
-            $"Current User: {SingletonCustomer.Customer.EmailPhone}\n" +
+            // $"Current User: {SingletonCustomer.Customer.Id}\n" +
+            // "------------------------------\n" +
+            // $"Current User: {SingletonCustomer.Customer.EmailPhone}\n" +
             "___________________________\n" +
-            "This is the testing menu\n" +
+            "Welcome to the Manager Main menu\n" +
             "[1] - CustomerMenu\n" +
             "[2] - StoreMenu\n" +
             "[3] - OrdersMenu\n" +

@@ -18,5 +18,7 @@ namespace TTGDL
         /// <param name="StoreName"></param>
         /// <returns></returns>
         ItemsInOrder AddItemInOrder(ItemsInOrder p_items);
+
+        List<ItemsInOrder> GetAllItemsInOrder(Orders _order);
     }
 }

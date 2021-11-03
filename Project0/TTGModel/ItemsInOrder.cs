@@ -12,5 +12,10 @@ namespace TTGModel
 
         public LineItem LineItem { get; set; }
         public Orders Order { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}\nLineItemID: {LineItemId}\nQuantity: {Quantity}\n";
+        }
     }
 }

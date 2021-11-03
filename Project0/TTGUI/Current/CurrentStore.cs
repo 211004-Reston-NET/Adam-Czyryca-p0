@@ -5,27 +5,28 @@ using TTGModel;
 
 namespace TTGUI
 {
-    public class CurrentProduct : IMenu
+    public class CurrentStore : IMenu
     {
-        private IProductBL _prodBL;
+        private IStoreBL _storeBL;
 
-        public CurrentProduct(IProductBL p_prodBL)
+        public CurrentStore(IStoreBL p_storeBL)
         {
-            _prodBL=p_prodBL;
+            _storeBL = p_storeBL;
         }
+
         public void Menu()
         {
-            List<Product> ListOfProducts = _prodBL.GetProduct(SingletonProduct.product.Name);
+            List<Store> ListOfStores = _storeBL.GetStore(SingletonStore.store.Name);
 
-            //Console.WriteLine(SingletonProduct.product.Name);
+            //Console.WriteLine(SingletonStore.store.Name);
             Console.WriteLine("search result");
-            foreach (Product Product in ListOfProducts)
+            foreach (Store Store in ListOfStores)
             {
                 Console.WriteLine(
-                    "-------------------------\n"+
-                    $"{Product}\n"+
+                    "-------------------------\n" +
+                    $"{Store}\n" +
                     "-------------------------\n"
-                ); 
+                );
             }
             Console.WriteLine("[0] - Go back");
         }
@@ -36,13 +37,13 @@ namespace TTGUI
             switch (userChoice)
             {
                 case "0":
-                    SingletonProduct.product.Name="";
-                    return MenuType.ShowProducts;
+                    SingletonStore.store.Name = "";
+                    return MenuType.ShowStores;
                 default:
                     Console.WriteLine("Enter a valid response");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
-                    return MenuType.CurrentProduct;
+                    return MenuType.CurrentStore;
             }
         }
     }

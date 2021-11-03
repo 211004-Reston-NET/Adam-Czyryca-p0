@@ -35,6 +35,6 @@ namespace TTGBL
         /// <returns></returns>
         void UpdateQuantity(int _itemID, int _newQuantity);
 
-        
+        LineItem GetMatchingLineItem(int _itemID);
     }
 }

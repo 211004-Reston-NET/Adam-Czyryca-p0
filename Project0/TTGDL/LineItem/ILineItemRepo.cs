@@ -34,5 +34,7 @@ namespace TTGDL
         /// <param name="_newQuantity"></param>
         /// <returns></returns>
         void UpdateQuantity(int _itemID, int _newQuantity);
+
+        LineItem GetMatchingLineItem(int _itemID);
     }
 }
