@@ -30,7 +30,7 @@ namespace TTGUI
             "[2] - Enter your for Address\n" +
             "[3] - Enter your Email or Phone number\n" +
             "[4] - Submit Information\n" +
-            "[0] - Go Back to Customer Menu\n" +
+            "[0] - Go Back\n" +
             "______________________________\n"
             );
 
@@ -65,16 +65,35 @@ namespace TTGUI
                     _cust.EmailPhone = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "4":
-                    _custBL.AddCustomer(_cust);
+                    try
+                    {
+                        _custBL.AddCustomer(_cust); 
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("one of the entered values was too long");
+                        Console.WriteLine("press enter to continue...");
+                        Console.ReadLine();
+                    }
+                    
                     Console.WriteLine("customer has been added successfully");
                     Console.WriteLine("Press enter to continue..");
                     Console.ReadLine();
-                    _cust.Name = "";
-                    _cust.Address = "";
-                    _cust.EmailPhone = "";
                     return MenuType.AddCustomerMenu;
                 case "0":
-                    return MenuType.CustomerMenu;
+                    if(SingletonUser.User == 0)
+                    {
+                        return MenuType.CustomerMenu;
+                    }
+                    else if(SingletonUser.User == 1) 
+                    {
+                        return MenuType.TestingMenu;
+                    }
+                    else
+                    {
+                        return MenuType.LogInMenu;
+                    }
+
                 default:
                     Console.WriteLine("Please choose one of the options listed above");
                     Console.WriteLine("press enter to continue...");

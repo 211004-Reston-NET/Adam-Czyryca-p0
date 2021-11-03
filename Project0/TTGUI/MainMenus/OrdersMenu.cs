@@ -17,7 +17,7 @@ namespace TTGUI
             "[0] Go back\n" +
             "______________________________________"
 
-            ); 
+            );
         }
 
         public MenuType Navigation()
@@ -26,7 +26,7 @@ namespace TTGUI
 
             switch (userChoice)
             {
-                
+
                 case "1":
                     return MenuType.AddOrderMenu;
                 case "2":
@@ -36,7 +36,14 @@ namespace TTGUI
                 case "4":
                     return MenuType.OrdersMenu;
                 case "0":
-                    return MenuType.MainCustomerMenu;
+                    if (SingletonUser.User == 0)
+                    {
+                        return MenuType.CustomerMenu;
+                    }
+                    else
+                    {
+                        return MenuType.TestingMenu;
+                    }
                 default:
                     Console.WriteLine(" Enter a Valid option ");
                     return MenuType.OrdersMenu;
