@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TTGModel;
 
 #nullable disable
 
-namespace TTGDL.Entities
+namespace TTGDL
 {
     public partial class database1Context : DbContext
     {
@@ -21,7 +22,7 @@ namespace TTGDL.Entities
         public virtual DbSet<ItemsInOrder> ItemsInOrders { get; set; }
         public virtual DbSet<LineItem> LineItems { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
 
@@ -59,12 +60,12 @@ namespace TTGDL.Entities
                 entity.Property(e => e.OrderId).HasColumnName("Order_ID");
 
                 entity.HasOne(d => d.LineItem)
-                    .WithMany(p => p.ItemsInOrders)
+                    .WithMany(p => p.ItemsInOrder)
                     .HasForeignKey(d => d.LineItemId)
                     .HasConstraintName("FKey_ToLineItem");
 
                 entity.HasOne(d => d.Order)
-                    .WithMany(p => p.ItemsInOrders)
+                    .WithMany(p => p.ItemsInOrder)
                     .HasForeignKey(d => d.OrderId)
                     .HasConstraintName("FKey_ToOrder");
             });
@@ -117,7 +118,7 @@ namespace TTGDL.Entities
                     .HasConstraintName("FKey_ToStoreManaging");
             });
 
-            modelBuilder.Entity<Order>(entity =>
+            modelBuilder.Entity<Orders>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -126,7 +127,7 @@ namespace TTGDL.Entities
                     .HasForeignKey(d => d.Customer)
                     .HasConstraintName("FKey_ToCustomer");
 
-                entity.HasOne(d => d.StoreFrontNavigation)
+                entity.HasOne(d => d.StoreNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.StoreFront)
                     .HasConstraintName("FKey_ToStore");

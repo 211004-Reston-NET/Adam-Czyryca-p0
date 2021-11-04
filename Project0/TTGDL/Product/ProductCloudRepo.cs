@@ -1,60 +1,40 @@
 using System.Collections.Generic;
 using System.Linq;
-//using TTGModel;
-using Entity = TTGDL.Entities;
-using Model = TTGModel;
+using TTGModel;
+
 
 namespace TTGDL
 {
     public class ProductCloudRepo : IProductRepo
     {
-        private Entity.database1Context _context;
+        private database1Context _context;
 
-        public ProductCloudRepo(Entity.database1Context p_context)
+        public ProductCloudRepo(database1Context p_context)
         {
             _context = p_context;
         }
 
-        public Model.Product AddProduct(Model.Product p_Product)
+        public Product AddProduct(Product p_Product)
         {
-            _context.Products.Add
-              (
-                 new Entity.Product()
-                 {
-                     Name = p_Product.Name,
-                     Price = p_Product.Price,
-                     Description = p_Product.Description,
-                     Catagory = p_Product.Catagory
-                 }
-             );
+            _context.Products.Add(p_Product);
+            
             _context.SaveChanges();
             return p_Product;
         }
 
 
-        public List<Model.Product> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            //method syntax
-            return _context.Products.Select(prod =>
-                new Model.Product()
-                {
-                    Id = prod.Id,
-                    Name = prod.Name,
-                    Price = prod.Price,
-                    Description = prod.Description,
-                    Catagory = prod.Catagory
-                }
-
-            ).ToList();
+            return _context.Products.ToList();
         }
 
 
-        public Model.Product GetProductByID(int p_prodID)
+        public Product GetProductByID(int p_prodID)
         {
             var result = _context.Products
-                .FirstOrDefault<Entity.Product>(prod =>
+                .FirstOrDefault<Product>(prod =>
                     prod.Id == p_prodID);
-            return new Model.Product()
+            return new Product()
             {
                 Id = result.Id,
                 Name = result.Name,

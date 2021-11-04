@@ -1,55 +1,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using TTGModel;
-using Entity = TTGDL.Entities;
-using Model = TTGModel;
+
 
 namespace TTGDL
 {
     public class StoreCloudRepo : IStoreRepository
     {
-        private Entity.database1Context _context;
+        private database1Context _context;
 
-        public StoreCloudRepo(Entity.database1Context p_context)
+        public StoreCloudRepo(database1Context p_context)
         {
             _context = p_context;
         }
 
         public Store AddStore(Store p_store)
         {
-            _context.Stores.Add
-              (
-                 new Entity.Store()
-                 {
-                     Name = p_store.Name,
-                     Address = p_store.Address,
-                 }
-             );
+            _context.Stores.Add(p_store);
+            
             _context.SaveChanges();
             return p_store;
         }
 
 
-        public List<Model.Store> GetAllStores()
+        public List<Store> GetAllStores()
         {
-            //method syntax
-            return _context.Stores.Select(store =>
-                new Model.Store()
-                {
-                    Id = store.Id,
-                    Name = store.Name,
-                    Address = store.Address,
-                }
-
-            ).ToList();
+            
+            return _context.Stores.ToList();
         }
 
-        public Model.Store GetStoreById(int p_storeId)
+        public Store GetStoreById(int p_storeId)
         {
             var result = _context.Stores
-                 .FirstOrDefault<Entity.Store>(store =>
+                 .FirstOrDefault<Store>(store =>
                      store.Id == p_storeId);
-            return new Model.Store()
+            return new Store()
             {
                 Id = result.Id,
                 Name = result.Name,

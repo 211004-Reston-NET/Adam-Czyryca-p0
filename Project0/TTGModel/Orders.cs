@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 namespace TTGModel
 {
     public class Orders
@@ -17,6 +19,8 @@ namespace TTGModel
         public Customer CustomerNavigation { get; set; }
 
         public Store StoreNavigation { get; set; }
+
+        public List<ItemsInOrder> ItemsInOrder {get; set;}
 
         public override string ToString()
         {

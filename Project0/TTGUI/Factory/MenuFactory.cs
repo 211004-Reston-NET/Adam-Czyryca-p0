@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using TTGBL;
 using TTGDL;
-using TTGDL.Entities;
+
 
 namespace TTGUI
 {

@@ -1,42 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Entity = TTGDL.Entities;
-using Model = TTGModel;
+using TTGModel;
 
 namespace TTGDL
 {
     public class CustomerCloudRepo : ICustRepository
     {
-        private Entity.database1Context _context;
+        private database1Context _context;
 
-        public CustomerCloudRepo(Entity.database1Context p_context)
+        public CustomerCloudRepo(database1Context p_context)
         {
             _context = p_context;
         }
 
         
-        public Model.Customer AddCustomer(Model.Customer p_cust)
+        public Customer AddCustomer(Customer p_cust)
         {
-            _context.Customers.Add
-            (
-                new Entity.Customer()
-                {
-                    Name = p_cust.Name,
-                    Address = p_cust.Address,
-                    EmailPhone = p_cust.EmailPhone
-
-                }
-            );
+            _context.Customers.Add(p_cust);
+        
             _context.SaveChanges();
             return p_cust;
         }
 
-        public List<Model.Customer> GetAllCustomers()
+        public List<Customer> GetAllCustomers()
         {
             //method syntax
             return _context.Customers.Select(cust =>
-                new Model.Customer()
+                new Customer()
                 {
                     Id = cust.Id,
                     Name = cust.Name,
@@ -65,12 +56,12 @@ namespace TTGDL
             // return ListOfCustomers;
         }
 
-        public Model.Customer GetMatchingCustomer(string p_custName, string p_emailPhone)
+        public Customer GetMatchingCustomer(string p_custName, string p_emailPhone)
         {
             var result = _context.Customers
-                .FirstOrDefault<Entity.Customer>(cust => 
+                .FirstOrDefault<Customer>(cust => 
                     cust.Name == p_custName && cust.EmailPhone ==p_emailPhone);
-            return new Model.Customer()
+            return new Customer()
                 {
                     Id = result.Id,
                     Name = result.Name,
@@ -79,12 +70,12 @@ namespace TTGDL
                 };
         }
 
-        public Model.Customer GetMatchingCustomer(int p_custID)
+        public Customer GetMatchingCustomer(int p_custID)
         {
             var result = _context.Customers
-                .FirstOrDefault<Entity.Customer>(cust =>
+                .FirstOrDefault<Customer>(cust =>
                     cust.Id == p_custID);
-            return new Model.Customer()
+            return new Customer()
             {
                 Id = result.Id,
                 Name = result.Name,

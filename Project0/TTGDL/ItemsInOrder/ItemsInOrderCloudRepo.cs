@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using TTGModel;
-using Entity = TTGDL.Entities;
-using Model = TTGModel;
+
 
 namespace TTGDL
 {
     public class ItemsInOrderCloudRepo : IItemsInOrderRepo
     {
-        private Entity.database1Context _context;
+        private database1Context _context;
 
-        public ItemsInOrderCloudRepo(Entity.database1Context p_context)
+        public ItemsInOrderCloudRepo(database1Context p_context)
         {
             _context = p_context;
         }
@@ -18,40 +17,26 @@ namespace TTGDL
         public ItemsInOrder AddItemInOrder(ItemsInOrder p_items)
         {
             //method syntax
-            _context.ItemsInOrders.Add
-              (
-                 new Entity.ItemsInOrder()
-                 {
-                     OrderId = p_items.OrderId,
-                     LineItemId = p_items.LineItemId,
-                     Quantity = p_items.Quantity
-                 }
-             );
+            _context.ItemsInOrders.Add(p_items);
+      
             _context.SaveChanges();
             return p_items;
         }
 
 
-        public List<Model.ItemsInOrder> GetAllItemsInOrder()
+        public List<ItemsInOrder> GetAllItemsInOrder()
         {
             //method syntax
-            return _context.ItemsInOrders.Select(ItemsInOrder =>
-                new Model.ItemsInOrder()
-                {
-                    OrderId = ItemsInOrder.OrderId,
-                    LineItemId = ItemsInOrder.LineItemId
-                }
-
-            ).ToList();
+            return _context.ItemsInOrders.ToList();
         }
 
-        public List<Model.ItemsInOrder> GetAllItemsInOrder(Orders p_order)
+        public List<ItemsInOrder> GetAllItemsInOrder(Orders p_order)
         {
             //method syntax
             return _context.ItemsInOrders
             .Where(item => item.OrderId == p_order.Id)
             .Select(ItemsInOrder =>
-                new Model.ItemsInOrder()
+                new ItemsInOrder()
                 {
                     OrderId = ItemsInOrder.OrderId,
                     LineItemId = ItemsInOrder.LineItemId,

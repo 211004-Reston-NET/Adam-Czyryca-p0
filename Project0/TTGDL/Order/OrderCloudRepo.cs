@@ -1,55 +1,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using TTGModel;
-using Entity = TTGDL.Entities;
-using Model = TTGModel;
+
 
 namespace TTGDL
 {
     public class OrderCloudRepo : IOrdersRepository
     {
-        private Entity.database1Context _context;
+        private database1Context _context;
 
-        public OrderCloudRepo(Entity.database1Context p_context)
+        public OrderCloudRepo(database1Context p_context)
         {
             _context = p_context;
         }
-        public Model.Orders AddOrder(Model.Orders order)
+        public Orders AddOrder(Orders p_order)
         {
-            _context.Orders.Add
-            (
-                new Entity.Order()
-                {
-                    StoreFront = order.StoreFront,
-                    Customer = order.Customer,
-                    Total = order.Total
-
-                }
-            );
+            _context.Orders.Add(p_order);
+            
             _context.SaveChanges();
-            return order;
+            return p_order;
         }
 
-        public List<Model.Orders> GetAllOrders()
+        public List<Orders> GetAllOrders()
         {
-            return _context.Orders.Select(order =>
-            new Model.Orders()
-            {
-                Id = order.Id,
-                StoreFront = order.StoreFront,
-                Customer = order.Customer,
-                Total = order.Total
-            }
-            ).ToList();
+            return _context.Orders.ToList();
         }
 
-        public List<Model.Orders> GetAllCustomerOrders(Customer p_cust)
+        public List<Orders> GetAllCustomerOrders(Customer p_cust)
         {
             //method syntax
             return _context.Orders
             .Where(ord=> ord.Customer == p_cust.Id)
             .Select(order =>
-                new Model.Orders()
+                new Orders()
                 {
                     Id = order.Id,
                     StoreFront = order.StoreFront,
@@ -63,9 +46,9 @@ namespace TTGDL
         public Orders GetOrder(int p_orderId)
         {
             var result = _context.Orders
-                .FirstOrDefault<Entity.Order>(_order =>
+                .FirstOrDefault<Orders>(_order =>
                     _order.Id == p_orderId);
-            return new Model.Orders()
+            return new Orders()
             {
                 Id = result.Id,
                 StoreFront= result.StoreFront,
