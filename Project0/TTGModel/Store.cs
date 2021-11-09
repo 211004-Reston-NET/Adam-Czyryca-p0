@@ -8,13 +8,12 @@ namespace TTGModel
         public int Id { get; set; }
         public string Name { get; set; }
 
-                /*
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                {
-                    throw new Exception("Name can only hold letters!");
-                }
-                */
-        
+        /*
+        if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+        {
+            throw new Exception("Name can only hold letters!");
+        }
+        */
         public string Address{get; set;}
 
         public List<LineItem> LineItems { get; set; }

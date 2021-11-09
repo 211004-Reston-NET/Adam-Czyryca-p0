@@ -27,6 +27,7 @@ namespace TTGModel
                 _name = value;
             }
         }
+        
         public string Address { get; set; }
         public string EmailPhone { get; set; }
 
