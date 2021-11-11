@@ -26,7 +26,7 @@ namespace TTGWebUI.Models
         public int Id { get; set; }
         public int Quantity  { get; set; }
         public int Product { get; set; }
-        public double Store { get; set; }
+        public int Store { get; set; }
         // public string Name { get; set; }
         // public double Price { get; set; }
         // public string Description { get; set; }

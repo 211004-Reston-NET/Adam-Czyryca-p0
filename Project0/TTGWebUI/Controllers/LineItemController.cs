@@ -14,11 +14,14 @@ namespace WebUI.Controllers
     {
         private ILineItemBL _lineItemBL;
         private IProductBL _prodBL;
+        private IStoreBL _storeBL;
 
-        public LineItemController(ILineItemBL p_lineItemBL, IProductBL p_prodBL)
+        public LineItemController(ILineItemBL p_lineItemBL, IProductBL p_prodBL, IStoreBL p_storeBL)
         {
             _lineItemBL = p_lineItemBL;
             _prodBL = p_prodBL;
+            _storeBL = p_storeBL;
+
         }
         //------------------------------------Index-----------------------------------------
         public ActionResult Index(int p_storeId)
@@ -50,7 +53,32 @@ namespace WebUI.Controllers
             return View(InventoryList);
         }
         //-----------------------------------create------------------------------------------
+        // GET: CustomerController/Create
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
 
+        // POST: CustomerController/Create
+        [HttpPost]
+        public IActionResult Create(LineItemVM LItemVM)
+        {
+            Product foundProd = _prodBL.GetProductByID(LItemVM.Product);
+            Store foundStore = _storeBL.GetStoreById(LItemVM.Store);
+            if (foundProd != null && foundStore!= null)
+            {
+                _lineItemBL.AddLineItem(new LineItem()
+                {
+                    Id = LItemVM.Id,
+                    Quantity = LItemVM.Quantity,
+                    Product = LItemVM.Product,
+                    Store = LItemVM.Store
+                });
+            }
+
+            return RedirectToAction(nameof(Inventory));
+        }
 
         //-----------------------------------Delete------------------------------------------
 

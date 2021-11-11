@@ -18,7 +18,7 @@ namespace TTGWebUI.Controllers
         {
             _custBL = p_custBL;
         }
-        //------------------------------------------------------------------------------
+        //-------------------------------------index----------------------------------------
 
         // GET: CustomerController
         public ActionResult Index()
@@ -31,7 +31,7 @@ namespace TTGWebUI.Controllers
                 .ToList()
             );
         }
-        //------------------------------------------------------------------------------
+        //---------------------------------------LogIn--------------------------------------
         [HttpGet]
         public IActionResult LogIn()
         {
@@ -53,7 +53,7 @@ namespace TTGWebUI.Controllers
             return View();
 
         }
-        //------------------------------------------------------------------------------
+        //-------------------------------------Create----------------------------------------
         // GET: CustomerController/Create
         [HttpGet]
         public IActionResult Create()
@@ -74,7 +74,7 @@ namespace TTGWebUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //------------------------------------------------------------------------------
+        //-----------------------------------Delete-----------------------------------------
         // GET: CustomerController/Delete/5
         public ActionResult Delete(int p_id)
         {
