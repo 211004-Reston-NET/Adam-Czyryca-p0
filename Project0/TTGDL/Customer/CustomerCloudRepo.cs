@@ -23,6 +23,13 @@ namespace TTGDL
             return p_cust;
         }
 
+        public Customer DeleteCustomer(Customer p_cust)
+        {
+            _context.Customers.Remove(p_cust);
+            _context.SaveChanges();
+            return p_cust;
+        }
+
         public List<Customer> GetAllCustomers()
         {
             //method syntax

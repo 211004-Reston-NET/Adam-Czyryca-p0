@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TTGModel;
 namespace TTGBL
@@ -36,5 +37,7 @@ namespace TTGBL
         void UpdateQuantity(int _itemID, int _newQuantity);
 
         LineItem GetMatchingLineItem(int _itemID);
+
+        //Tuple<LineItem, Product> GetFullItem(LineItem _item);
     }
 }

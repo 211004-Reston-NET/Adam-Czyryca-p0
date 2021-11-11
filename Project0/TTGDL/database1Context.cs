@@ -125,6 +125,7 @@ namespace TTGDL
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Customer)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FKey_ToCustomer");
 
                 entity.HasOne(d => d.StoreNavigation)

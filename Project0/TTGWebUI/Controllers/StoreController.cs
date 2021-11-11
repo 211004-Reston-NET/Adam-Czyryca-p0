@@ -1,24 +1,30 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using TTGBL;
+using TTGWebUI.Models;
+using TTGModel;
 
 
 namespace TTGWebUI.Controllers
 {
     public class StoreController : Controller
     {
-        IStoreBL _storBL;
+        IStoreBL _storeBL;
 
         public StoreController(IStoreBL p_storeBL)
         {
-            _storBL = p_storeBL;
+            _storeBL = p_storeBL;
         }
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            return View(_storeBL.GetAllStores()
+                .Select(store => new StoreVM(store))
+                .ToList()
+            );
         }
     }
 }

@@ -20,6 +20,11 @@ namespace TTGBL
            return _custRepo.AddCustomer(p_cust);
         }
 
+        public Customer DeleteCustomer(Customer p_cust)
+        {
+            return _custRepo.DeleteCustomer(p_cust);
+        }
+
         public List<Customer> GetAllCustomers()
         {
             List<Customer> listOfCustomers = _custRepo.GetAllCustomers();

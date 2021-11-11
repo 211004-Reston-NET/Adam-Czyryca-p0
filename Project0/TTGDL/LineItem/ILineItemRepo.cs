@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using TTGModel;
 namespace TTGDL
 {
     public interface ILineItemRepo
-{
+    {
         /// <summary>
         /// this will return a list of stores stored in the database
         /// it will alse capitalize the store name
@@ -36,5 +37,7 @@ namespace TTGDL
         void UpdateQuantity(int _itemID, int _newQuantity);
 
         LineItem GetMatchingLineItem(int _itemID);
+
+        //Tuple<LineItem, Product> GetFullItem(LineItem _item);
     }
 }

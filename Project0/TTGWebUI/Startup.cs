@@ -27,8 +27,25 @@ namespace TTGWebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<database1Context>(options => options.UseSqlServer(Configuration.GetConnectionString("ReferenceToDB")));
+           
             services.AddScoped<ICustomerBL, CustomerBL>();
             services.AddScoped<ICustRepository, CustomerCloudRepo>();
+           
+            services.AddScoped<IStoreBL, StoreBL>();
+            services.AddScoped<IStoreRepository, StoreCloudRepo>();
+           
+            services.AddScoped<IProductBL, ProductBL>();
+            services.AddScoped<IProductRepo, ProductCloudRepo>();
+
+            services.AddScoped<ILineItemBL, LineItemBL>();
+            services.AddScoped<ILineItemRepo, LineItemCloudRepo>();
+
+            services.AddScoped<IOrderBL, OrderBL>();
+            services.AddScoped<IOrdersRepository, OrderCloudRepo>();
+
+            services.AddScoped<IItemsInOrderBL, ItemsInOrderBL>();
+            services.AddScoped<IItemsInOrderRepo, ItemsInOrderCloudRepo>();
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
@@ -56,7 +73,8 @@ namespace TTGWebUI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Customer}/{action=LogIn}/{id?}");
+                    //pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

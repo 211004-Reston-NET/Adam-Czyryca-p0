@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TTGDL;
 using TTGModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TTGTest
 {
@@ -35,6 +36,44 @@ namespace TTGTest
             }
         }
 
+        [Fact]
+        public void GetMatchingCustomerTest()
+        {
+            using (var context = new database1Context(_options))
+            {
+                //arrange -- define/ set up what is needed for the Act
+                ICustRepository repo = new CustomerCloudRepo(context);
+                Customer test = context.Customers.Find(1);
+                //Act -- a call to the method that is being tested 
+                Customer found = repo.GetMatchingCustomer(test.Id);
+
+                //Assert -- expected outcome of Act
+                //Equal(number of customers expected, #of customers retrevied from GetAllCustomers)
+                Assert.Equal("Tester Balthezar", test.Name);
+            }
+        }
+
+        [Fact]
+        public void DeleteCustomerTest()
+        {
+            using (var context = new database1Context(_options))
+            {
+                //Arrange
+                ICustRepository repo = new CustomerCloudRepo(context);
+                Customer cust = context.Customers.Find(1);
+
+                //Act
+                repo.DeleteCustomer(cust);
+            }
+            using (var context = new database1Context(_options))
+            {
+                //Assert
+                List<Customer> ListOfCust = context.Customers.ToList();
+
+                Assert.Single(ListOfCust);
+                Assert.Null(context.Customers.Find(1));
+            }
+        }
         [Fact]
         public void AddCustomerTest()
         {

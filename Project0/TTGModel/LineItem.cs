@@ -10,8 +10,18 @@ namespace TTGModel
         public int Quantity { get; set; }
         public int Product { get; set; }
         public int Store { get; set; }
-
-
+        // private Product _product = new Product();
+        // public Product Productobj
+        // {
+        //     get
+        //     {
+        //         return _product;
+        //     }
+        //     set
+        //     {
+        //         _product = value;
+        //     }
+        // }
         public Product ProductNavigation { get; set; }
         public Store StoreNavigation { get; set; }
 

@@ -31,5 +31,12 @@ namespace TTGDL
         /// <param name="_custID"></param>
         /// <returns></returns>
         Customer GetMatchingCustomer(int _custID);
+
+        /// <summary>
+        /// removes the passed customer onj from the database
+        /// </summary>
+        /// <param name="_cust">cust to delete</param>
+        /// <returns>deleted cust</returns>
+        Customer DeleteCustomer(Customer _cust);
     }
 }

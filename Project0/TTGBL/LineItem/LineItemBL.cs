@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TTGModel;
 using TTGDL;
+using System;
 
 namespace TTGBL
 {
@@ -8,11 +9,12 @@ namespace TTGBL
     {
 
         private ILineItemRepo _LineRepo;
-        
+       // private IProductRepo _prodRepo;
 
-        public LineItemBL(ILineItemRepo p_Line)
+        public LineItemBL(ILineItemRepo p_Line)//,IProductRepo p_prodRepo)
         {
             _LineRepo = p_Line;
+           // _prodRepo=p_prodRepo;
             
         }
 
@@ -35,6 +37,11 @@ namespace TTGBL
 
             return ListOfLineItems;
         }
+
+        // public Tuple<LineItem, Product> GetFullItem(LineItem p_item)
+        // {
+        //     return _LineRepo.GetFullItem(p_item);
+        // }
 
         public LineItem GetMatchingLineItem(int p_itemID)
         {
